@@ -32,3 +32,9 @@ create table product(
 INSERT INTO product(product_name, product_price, product_qty, created_at) VALUES('바나나', 3000, 98, NOW());
 INSERT INTO product(product_name, product_price, product_qty, created_at) VALUES('딸기', 2000, 100, NOW());
 ```
+
+### 6. 테마 색상
+ - #F9F5EB
+ - #EAE3D2
+ - #607EAA
+ - #1C3879
