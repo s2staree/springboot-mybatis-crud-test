@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'RixInooAriDuriR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/RixInooAriDuriR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+	font-family: 'Pretendard-Regular';
+
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+
+
+/*------.header시작------*/
+.header{
+	height: 60px;
+	background-color: #F9F5EB;
+}
+.header_menu{
+    display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+}
+.header_menu a{
+    color: #1C3879;
+	line-height: 60px;
+	font-size: 14px;
+	font-weight: bolder;
+	margin-right: 50px;
+}
+.header_menu a:last-child{
+    margin-right: 0
+}
+/*------.header끝------*/
+
+
+
+/*------.detail시작------*/
+.detail_page {
+    width: 1000px;
+}
+.page_thumbnail {
+    width: 398px;
+    height: 398px;
+    border: 1px dotted #607EAA;
+}
+.page_name {
+    width: 398px;
+    height: 78px;
+    border: 1px dotted #607EAA;
+}
+.page_price {
+    width: 398px;
+    height: 78px;
+    border: 1px dotted #607EAA;
+}
+.page_shipping {
+    width: 398px;
+    height: 78px;
+    border: 1px dotted #607EAA;
+}
+.page_qty {
+    width: 398px;
+    height: 78px;
+    border: 1px dotted #607EAA;
+}
+.page_buy {
+    width: 398px;
+    height: 78px;
+    border: 1px dotted #607EAA;
+}
+.page_info {
+    width: 798px;
+    border: 1px dotted #607EAA;
+}
+.page_cont1 {
+    display: -webkit-flex;
+    display: flex;
+    margin: 50px;
+}
+.page_cont2{
+    margin: 50px;
+}
+/*------.detail끝------*/
+
+
+
+/*------.footer시작------*/
+.footer{
+    padding-top: 10px;
+	height: 120px;
+	background-color: #1C3879;
+}
+
+.footer div{
+    color: #F9F5EB;
+    align-items: center;
+}
+
+.footer_menu{
+    display: -webkit-flex;
+    display: flex;
+}
+
+.footer_menu a{
+    color: #F9F5EB;
+    margin-right: 10px;
+}
+
+.footer_languages{
+    margin-top: 10px;
+}
+
+.footer_languages .languages{
+    background-color: white;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	background-image:
+	linear-gradient(45deg, transparent 50%, #bbb 50%),
+	linear-gradient(135deg, #bbb 50%, transparent 50%),
+	radial-gradient(#f2f2f2 70%, transparent 72%);
+	background-position:
+	calc(100% - 20px) calc(1em + 2px),
+	calc(100% - 15px) calc(1em + 2px),
+	calc(100% - .75em) .75em;
+	background-size:
+	5px 5px,
+	5px 5px,
+	1em 1em;
+	background-repeat: no-repeat;
+}
+/*------.footer끝------*/

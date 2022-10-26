@@ -22,17 +22,39 @@
 }
 
 
-/*------.list시작------*/
-.list_box .box_table{
-    width: 90%;
-    margin: 50px auto;
-    border-collapse: collapse;
+body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+	font-family: 'Pretendard-Regular';
+
 }
-.list_box .box_table thead tr th{
-    border: 1px solid #444444;
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
-.list_box .box_table tbody tr td{
-    border: 1px solid #444444;
-    text-align: center;
+
+
+/*------.header시작------*/
+.header{
+	height: 60px;
+	background-color: #F9F5EB;
 }
-/*------.list끝------*/
+
+.header_menu{
+    display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+}
+
+.header_menu a{
+    color: #1C3879;
+	line-height: 60px;
+	font-size: 14px;
+	font-weight: bolder;
+	margin-right: 50px;
+}
+
+.header_menu a:last-child{
+    margin-right: 0
+}
+/*------.header끝------*/
