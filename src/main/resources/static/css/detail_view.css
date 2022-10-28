@@ -1,22 +1,8 @@
 @charset "UTF-8";
 
 @font-face {
-    font-family: 'RixInooAriDuriR';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/RixInooAriDuriR.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-family: 'MonoplexKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
 }
@@ -26,7 +12,7 @@
 body {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
-	font-family: 'Pretendard-Regular';
+	font-family: 'MonoplexKR-Regular';
 
 }
 
@@ -63,6 +49,9 @@ body::-webkit-scrollbar {
 /*------.detail시작------*/
 .detail_page {
     width: 1000px;
+    display: -webkit-flex;
+    display: flex;
+    margin: 50px;
 }
 .page_thumbnail {
     width: 398px;
@@ -71,40 +60,23 @@ body::-webkit-scrollbar {
 }
 .page_name {
     width: 398px;
-    height: 78px;
+    height: 98px;
     border: 1px dotted #607EAA;
 }
 .page_price {
     width: 398px;
-    height: 78px;
-    border: 1px dotted #607EAA;
-}
-.page_shipping {
-    width: 398px;
-    height: 78px;
+    height: 98px;
     border: 1px dotted #607EAA;
 }
 .page_qty {
     width: 398px;
-    height: 78px;
+    height: 98px;
     border: 1px dotted #607EAA;
 }
 .page_buy {
     width: 398px;
-    height: 78px;
+    height: 98px;
     border: 1px dotted #607EAA;
-}
-.page_info {
-    width: 798px;
-    border: 1px dotted #607EAA;
-}
-.page_cont1 {
-    display: -webkit-flex;
-    display: flex;
-    margin: 50px;
-}
-.page_cont2{
-    margin: 50px;
 }
 /*------.detail끝------*/
 

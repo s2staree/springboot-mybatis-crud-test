@@ -15,46 +15,36 @@
 				<tr>
 					<td>상품ID</td>
 					<td>상품명</td>
-					<td>재고수량</td>
 					<td>판매가</td>
-					<td>배송비</td>
-					<td>판매상태</td>
+					<td>재고수량</td>
 					<td>등록일자</td>
 				</tr>
 				<tr>
 					<td>상품ID</td>
 					<td>상품명</td>
-					<td>재고수량</td>
 					<td>판매가</td>
-					<td>배송비</td>
-					<td>판매상태</td>
+					<td>재고수량</td>
 					<td>등록일자</td>
 				</tr>
 				<tr>
 					<td>상품ID</td>
 					<td>상품명</td>
-					<td>재고수량</td>
 					<td>판매가</td>
-					<td>배송비</td>
-					<td>판매상태</td>
+					<td>재고수량</td>
 					<td>등록일자</td>
 				</tr>
 				<tr>
 					<td>상품ID</td>
 					<td>상품명</td>
-					<td>재고수량</td>
 					<td>판매가</td>
-					<td>배송비</td>
-					<td>판매상태</td>
+					<td>재고수량</td>
 					<td>등록일자</td>
 				</tr>
 				<tr>
 					<td>상품ID</td>
 					<td>상품명</td>
-					<td>재고수량</td>
 					<td>판매가</td>
-					<td>배송비</td>
-					<td>판매상태</td>
+					<td>재고수량</td>
 					<td>등록일자</td>
 				</tr>
 			</tbody>

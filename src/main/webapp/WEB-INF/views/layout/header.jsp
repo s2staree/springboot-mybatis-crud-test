@@ -21,8 +21,8 @@
 	<!------.header시작------>
 	<header class="header">
 		<div class="header_menu">
-			<a href="#">상품등록</a>
-			<a href="#">상품목록</a>
+			<a href="/product/add">상품등록</a>
+			<a href="/product/list">상품목록</a>
 		</div>
 	</header>
 	<!------.header끝------>
