@@ -4,6 +4,8 @@ import java.util.List;
 
 public interface ProductDao {
     public Product findById(Integer productId);
+    
+    public Product findByName(String productName);
 
     public List<Product> findAll();
 

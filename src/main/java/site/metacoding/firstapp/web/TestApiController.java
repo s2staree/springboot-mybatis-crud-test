@@ -51,6 +51,12 @@ public class TestApiController {
 	
 	@DeleteMapping("/test/api/product/{productId}/delete")
     public int delete(@PathVariable Integer productId) {
+		// 실제로 id의 상품이 존재하는지 유무 검사하기
+		Product productPS = productDao.findById(productId);
+		if(productPS == null) {	// 상품이 없으면 다음 코드 실행
+			throw new RuntimeException("해당 아이디의 상품이 존재하지 않습니다.");
+		}
+		// 상품이 있으면 다음 코드 실행
 		int productDelete = productDao.deleteById(productId);
 		return productDelete;
 	}
@@ -70,6 +76,12 @@ public class TestApiController {
 	// 굳이 PutMapping 주소에 {productId} 넣을 필요 없음 -> @PathVariable 쓸 필요 없음!
 	@PutMapping("/test/api/product")
 	public int update(@RequestBody Product product) {
+		// 실제로 id의 상품이 존재하는지 유무 검사
+		Product productPS = productDao.findById(product.getProductId());
+		if(productPS == null) { // 상품이 없으면 다음 코드 실행
+			throw new RuntimeException("해당 아이디의 상품이 존재하지 않습니다.");
+		}
+		// 상품이 있으면 다음 코드 실행
 		int productEdit = productDao.update(product);
 		return productEdit;
 	}
