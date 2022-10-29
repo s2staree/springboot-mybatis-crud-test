@@ -18,7 +18,8 @@
 	</insert>
 
   <update id="update">
-    UPDATE product SET product_name = #{productName},
+    UPDATE product
+	SET product_name = #{productName},
     product_price = #{productPrice},
     product_qty = #{productQty}
     WHERE product_id = #{productId}
