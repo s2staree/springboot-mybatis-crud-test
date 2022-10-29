@@ -20,19 +20,19 @@ public class ProductApiController {
 	
 	private final ProductDao productDao;
 	
-	@GetMapping("/product")
+	@GetMapping("/api/product")
 	public List<Product> findAll() {
 		List<Product> productList = productDao.findAll();
 		return productList;
 	}
 	
-	@GetMapping("/product/{productId}")
+	@GetMapping("/api/product/{productId}")
 	public Product findById(@PathVariable Integer productId) {
 		Product productPS = productDao.findById(productId);
 		return productPS;
 	}
 	
-	@PostMapping("/product/insert")
+	@PostMapping("/api/product/insert")
 	public int insert(@RequestBody Product product) {
 		
 		// 1. db에 productName으로 등록된 상품이 있는지 유무 확인
@@ -45,7 +45,7 @@ public class ProductApiController {
 		return productInsert;
 	}
 	
-	@DeleteMapping("/product/{productId}/delete")
+	@DeleteMapping("/api/product/{productId}/delete")
 	public int deleteById(@PathVariable Integer productId) {
 		
 		// 1. db에 productId로 등록된 상품이 있는지 유무 확인
@@ -59,7 +59,7 @@ public class ProductApiController {
 		return productDelete;
 	}
 	
-	@PutMapping("/product/edit")
+	@PutMapping("/api/product/edit")
 	public int update(@RequestBody Product product) {
 		
 		// 1. db에 productId로 등록된 상품이 있는지 유무 확인

@@ -4,52 +4,27 @@
 
 <!------.list시작------>
 <section class="list">
-    <div class="list_box">
+	<div class="list_box">
 		<table class="box_table">
 			<thead>
 				<tr>
 					<th colspan="8">상품목록</th>
+					
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>상품ID</td>
-					<td>상품명</td>
-					<td>판매가</td>
-					<td>재고수량</td>
-					<td>등록일자</td>
-				</tr>
-				<tr>
-					<td>상품ID</td>
-					<td>상품명</td>
-					<td>판매가</td>
-					<td>재고수량</td>
-					<td>등록일자</td>
-				</tr>
-				<tr>
-					<td>상품ID</td>
-					<td>상품명</td>
-					<td>판매가</td>
-					<td>재고수량</td>
-					<td>등록일자</td>
-				</tr>
-				<tr>
-					<td>상품ID</td>
-					<td>상품명</td>
-					<td>판매가</td>
-					<td>재고수량</td>
-					<td>등록일자</td>
-				</tr>
-				<tr>
-					<td>상품ID</td>
-					<td>상품명</td>
-					<td>판매가</td>
-					<td>재고수량</td>
-					<td>등록일자</td>
-				</tr>
+				<c:forEach var="KonggPatg" items="${KongG}">
+					<tr>
+						<td>${KonggPatg.productId}</td>
+						<td>${KonggPatg.productName}</td>
+						<td>${KonggPatg.productPrice}</td>
+						<td>${KonggPatg.productQty}</td>
+						<td>${KonggPatg.createdAt}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
-    </div>
+	</div>
 </section>
 <!------.list끝------>
 

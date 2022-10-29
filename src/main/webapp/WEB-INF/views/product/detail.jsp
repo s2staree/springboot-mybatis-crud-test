@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
 
@@ -11,12 +11,14 @@
 		<ul>
 			<li>
 				<div class="page_name">
-					상품명
+					<div>상품명</div>
+					<div>${HongG.productName}</div>
 				</div>
 			</li>
 			<li>
 				<div class="page_price">
-					판매가
+					<div>판매가</div>
+					<div>${HongG.productPrice}</div>
 				</div>
 			</li>
 			<li>

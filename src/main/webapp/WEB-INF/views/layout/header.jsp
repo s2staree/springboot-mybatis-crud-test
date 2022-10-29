@@ -8,13 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상품관리</title>
-    <link href="../../../../resources/static/css/reset.css" rel="stylesheet">
-    <link href="../../../../resources/static/css/header.css" rel="stylesheet">
-    <link href="../../../../resources/static/css/footer.css" rel="stylesheet">
-    <link href="../../../../resources/static/css/add.css" rel="stylesheet">
-	<link href="../../../../resources/static/css/detail.css" rel="stylesheet">
-	<link href="../../../../resources/static/css/edit.css" rel="stylesheet">
-	<link href="../../../../resources/static/css/list.css" rel="stylesheet">
+    <link href="/css/reset.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+    <link href="/css/add.css" rel="stylesheet">
+	<link href="/css/detail.css" rel="stylesheet">
+	<link href="/css/edit.css" rel="stylesheet">
+	<link href="/css/list.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
