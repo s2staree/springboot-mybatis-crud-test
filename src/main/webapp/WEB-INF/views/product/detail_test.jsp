@@ -12,13 +12,13 @@
 			<li>
 				<div class="page_name">
 					<div>상품명</div>
-					<div>${detail.productName}</div>
+					<div>${HongG.productName}</div>
 				</div>
 			</li>
 			<li>
 				<div class="page_price">
 					<div>판매가</div>
-					<div>${detail.productPrice}</div>
+					<div>${HongG.productPrice}</div>
 				</div>
 			</li>
 			<li>
@@ -39,7 +39,7 @@
 				</div>
 			</li>
 			<li>
-			<form action="/product/${productId}/delete" method="post">
+			<form action="/test/product/delete/${productId}" method="post">
 				<div class="page_buy">
 					<button type="submit">
 						삭제하기

@@ -17,30 +17,39 @@ import site.metacoding.firstapp.domain.ProductDao;
 public class TestController {
 
 	private final ProductDao productDao;
+	
+	//1. view페이지를 컨트롤러로 연결한다. -> 연결확인
+	//2. 해당 페이지의 기능을 구현한다.
+	
+	@PostMapping("/test")
+	public String save() {
+		return null;
+		// 초기값은 null을 리턴해서 빨간 줄 안생기게 구현하기
+	}
 
-	// Api RequestBody << model은 view까지 값을 가져감
-	@GetMapping({"/product", "/"})
+	// Model : Api의 RequestBody와 비슷하지만, Model은 view까지 값을 가져감
+	@GetMapping("/test/product")
 	public String findAll(Model model) {
 		List<Product> productList = productDao.findAll();
 		model.addAttribute("KongG", productList);
-		return "product/list";
+		return "product/list_test";
 	}
 	
-	@GetMapping("/product/{productId}")
+	@GetMapping("/test/product/{productId}")
 	public String findById(Model model, @PathVariable Integer productId) {
 		Product productPS = productDao.findById(productId);
 		model.addAttribute("HongG", productPS);
-		return "product/detail";
+		return "product/detail_test";
 	}
 	
-	@GetMapping("/product/edit/{productId}")
+	@GetMapping("/test/product/edit/{productId}")
     public String updateForm(Model model, @PathVariable Integer productId, Product product) {
 		Product productEdit = productDao.findById(productId);
 		model.addAttribute("YeonG", productEdit);
-		return "product/edit";
+		return "product/edit_test";
 	}
 	
-	@PostMapping("/product/edit/{productId}")
+	@PostMapping("/test/product/edit/{productId}")
 	public String update(@PathVariable Integer productId, Product product) {
 		Product productEdit = productDao.findById(productId);
 		productEdit.update(product);
@@ -48,18 +57,18 @@ public class TestController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/product/add")
+	@GetMapping("/test/product/add")
     public String insertForm() {
-		return "product/add";
+		return "product/add_test";
 	}
 	
-	@PostMapping("/product/add")
+	@PostMapping("/test/product/add")
     public String insert(Product product) {
 		productDao.insert(product);
 		return "redirect:/";
 	}
 	
-	@PostMapping("/product/delete/{productId}")
+	@PostMapping("/test/product/delete/{productId}")
 	public String Delete(@PathVariable Integer productId) {
 		productDao.deleteById(productId);
 		return "redirect:/";

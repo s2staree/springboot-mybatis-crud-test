@@ -13,13 +13,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="list" items="${list}">
+				<c:forEach var="KonggPatg" items="${KongG}">
 					<tr>
-						<td>${list.productId}</td>
-						<td>${list.productName}</td>
-						<td>${list.productPrice}</td>
-						<td>${list.productQty}</td>
-						<td>${list.createdAt}</td>
+						<td>${KonggPatg.productId}</td>
+						<td>${KonggPatg.productName}</td>
+						<td>${KonggPatg.productPrice}</td>
+						<td>${KonggPatg.productQty}</td>
+						<td>${KonggPatg.createdAt}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
