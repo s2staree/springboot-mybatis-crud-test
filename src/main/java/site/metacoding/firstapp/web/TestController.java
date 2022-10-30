@@ -7,8 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Product;
@@ -58,6 +56,12 @@ public class TestController {
 	@PostMapping("/product/add")
     public String insert(Product product) {
 		productDao.insert(product);
+		return "redirect:/";
+	}
+	
+	@PostMapping("/product/delete/{productId}")
+	public String Delete(@PathVariable Integer productId) {
+		productDao.deleteById(productId);
 		return "redirect:/";
 	}
 }

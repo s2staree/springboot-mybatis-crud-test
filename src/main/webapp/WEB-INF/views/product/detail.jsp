@@ -39,11 +39,13 @@
 				</div>
 			</li>
 			<li>
+			<form action="/product/delete/${productId}" method="post">
 				<div class="page_buy">
-					<button type="button">
-						구매하기
+					<button type="submit">
+						삭제하기
 					</button>
 				</div>
+			</form>
 			</li>
 		</ul>
     </div>
