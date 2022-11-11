@@ -32,18 +32,19 @@ public class ProductApiController {
 		return productPS;
 	}
 	
-	@PostMapping("/api/product/insert")
-	public int insert(@RequestBody Product product) {
-		
-		// 1. db에 productName으로 등록된 상품이 있는지 유무 확인
-		Product productPS = productDao.findByName(product.getProductName());
-		if(productPS != null) { // 2. 상품이 있으면 다음 코드 실행
-			throw new RuntimeException("해당 상품 있음");
-		}
-		// 3. 상품이 없으면 다음 코드 실행
-		int productInsert = productDao.insert(product);
-		return productInsert;
-	}
+//	@PostMapping("/api/product/add")
+//	public int insert(@RequestBody Product product) {
+//		
+//		// 1. db에 productName으로 등록된 상품이 있는지 유무 확인
+//		Product productPS = productDao.findByName(product.getProductName());
+//		if(productPS != null) { // 2. 상품이 있으면 다음 코드 실행
+//			throw new RuntimeException("해당 상품 있음");
+//		}
+//		
+//		// 3. 상품이 없으면 다음 코드 실행
+//		int productInsert = productDao.insert(product);
+//		return productInsert;
+//	}
 	
 	@DeleteMapping("/api/product/{productId}/delete")
 	public int deleteById(@PathVariable Integer productId) {

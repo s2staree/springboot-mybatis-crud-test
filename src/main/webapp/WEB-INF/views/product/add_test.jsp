@@ -18,10 +18,10 @@
 		<h2>재고수량</h2>
 		<input type="text" name="productQty">
 	</div>
-	<div class="add_thumbnail">
+	<!--  <div class="add_thumbnail">
 		<h2>대표이미지</h2>
 		<button type="button">업로드</button>
-	</div>
+	</div>-->
 	<button type="submit">등록하기</button>
 </section>
 </form>

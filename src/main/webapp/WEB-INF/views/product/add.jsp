@@ -3,7 +3,7 @@
 <%@ include file="../layout/header.jsp"%>
 
 <!------.add시작------>
-<form action="/product/insert" method="post">
+<form action="/product/add" method="post">
 <section class="add">
 	<h1>상품등록</h1>
 	<div class="add_name">

@@ -22,7 +22,7 @@
 	<header class="header">
 		<div class="header_menu">
 			<a href="/product/add">상품등록</a>
-			<a href="/product/list">상품목록</a>
+			<a href="/product">상품목록</a>
 		</div>
 	</header>
 	<!------.header끝------>

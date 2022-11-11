@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Product;
@@ -23,15 +22,25 @@ public class ProductController {
 	//2. 해당 페이지의 기능을 구현한다.
 	
 	//[Create] Insert Form
-	@GetMapping("/product/insert")
-	public String 상품등록폼() {
+	@GetMapping("/product/add")
+	public String 상품등록폼() { // Model : Api의 RequestBody와 비슷하지만, Model은 view까지 값을 가져감
 		return "product/add";
 	}
+	//상품등록 폼 ()안에 모델이 없는데 모델로 값을 박을려고해서 오류가 발생
+	//get 요청할때는 굳이 model이 필요하지 않을듯 함
+	// 숙제에서는 굳이 photo 필요없음!! DB보면 photo 넣는곳이 따로 없다
 	
 	//[Create] Insert
-	@PostMapping("/product/insert")
+	@PostMapping("/product/add")
 	public String 상품등록(Product product) {
-		productDao.insert(product);
+		
+		// 1. db에 productName으로 등록된 상품이 있는지 유무 확인
+		Product productPS = productDao.findByName(product.getProductName());
+		if(productPS != null) { // 2. 상품이 있으면 다음 코드 실행
+			throw new RuntimeException("해당 상품 있음");
+		}
+		// 3. 상품이 없으면 다음 코드 실행
+		productDao.insert(product);	// 추가된 내용 db에 저장
 		return "redirect:/";
 	}
 	
@@ -112,9 +121,9 @@ public class ProductController {
 	//[Update] Update Form
 	@GetMapping("/product/{productId}/edit")
 	public String 상품수정폼(Model model, @PathVariable Integer productId) {
-		Product productPS = productDao.findById(productId);
-		model.addAttribute("edit", productPS);
-		return "product/edit";
+		Product productPS = productDao.findById(productId);	// 상품Id값 찾아서 PS에 담는다.
+		model.addAttribute("edit", productPS);	// PS를 모델에 담고 별칭을 붙인다. (jsp에서 사용하기 위함)
+		return "product/edit";	// jsp를 리턴한다.
 	}
 	
 	//[Update] Update

@@ -27,12 +27,12 @@ public class TestApiController {
 	// RequestBody << 요청한 몸체 (규칙 : 유저한테 받은 값을 가져오려면 붙여야 함)
 	// 사용자가 입력한 값이 들어가 있음
 	// 사용자가 입력한 product라는 객체
-	@PostMapping("/test/api/product")
-	public int saveTest(@RequestBody Product product) {
-		// dao의 insert호출 (사용자가 입력한 객체)
-		int productPS = productDao.insert(product);
-		return productPS;
-	}
+//	@PostMapping("/test/api/product")
+//	public int saveTest(@RequestBody Product product) {
+//		// dao의 insert호출 (사용자가 입력한 객체)
+//		int productPS = productDao.insert(product);
+//		return productPS;
+//	}
 	
 	//localhost/test/api/product/1
 	// 규칙 PathVariable < 주소창에 있는 {}사이에 끼이는 값을 매개변수에 입혀줌
