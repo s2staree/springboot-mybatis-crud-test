@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'MonoplexKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'MonoplexKR-Regular';
+    font-size: 14px;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
+a {
+    color: #111;
+    text-decoration: none;
+}
+
+img {
+    border: none;
+    vertical-align: top;
+}
+
+ul, ol {
+    list-style: none;
+}
