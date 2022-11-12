@@ -40,7 +40,7 @@
 			</li>
 			<li>
 			<div class="page_edit_delete">
-				<form action="/product/${productId}/edit" method="post">
+				<form action="/product/${productId}/edit" method="get">
 					<div class="page_edit">
 						<button type="submit">
 							수정
