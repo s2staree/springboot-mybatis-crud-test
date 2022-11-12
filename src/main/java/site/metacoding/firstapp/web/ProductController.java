@@ -62,8 +62,10 @@ public class ProductController {
         return "redirect:/";
     }
     
+    // 상품삭제하기
     @PostMapping("/product/{productId}/delete")
-    public String deleteById() {
+    public String deleteById(@PathVariable Integer productId) {
+    	productDao.deleteById(productId);
         return "redirect:/";
     }
 }
