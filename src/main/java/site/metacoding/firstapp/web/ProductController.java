@@ -47,14 +47,19 @@ public class ProductController {
         return "product/add";
     }
     
+    // 상품수정하기 Form
     @GetMapping("/product/{productId}/edit")
-    public String updateForm() {
+    public String updateForm(@PathVariable Integer productId, Model model) {
+    	Product productPS = productDao.findById(productId);
+    	model.addAttribute("edit", productPS);
         return "product/edit";
     }
     
-    @PostMapping("/product/{productId}/edit")
-    public String update() {
-        return "product/edit";
+    // 상품수정하기
+    @PostMapping("/product/{productId}/edit")	// 위 Form 코드의 매핑주소와 통일해야 함.
+    public String update(Product product) {	// 위 Form 코드에서 id값을 이미 받아왔기 때문에 @PathVariable 안 붙여도 됨.
+    	productDao.update(product);
+        return "redirect:/";
     }
     
     @PostMapping("/product/{productId}/delete")
