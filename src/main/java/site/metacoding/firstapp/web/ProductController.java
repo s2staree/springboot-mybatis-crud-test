@@ -1,6 +1,9 @@
 package site.metacoding.firstapp.web;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -19,8 +22,11 @@ public class ProductController {
         return "product/detail";
     }
     
+	// 상품목록보기
     @GetMapping({"/product", "/"})
-    public String findAll() {
+    public String findAll(Model model) { // Model: 페이지(jsp) view로 가져오기 위해서 사용. Request(요청)같은 기능.
+    	List<Product> productPS = productDao.findAll();
+    	model.addAttribute("list", productPS);
         return "product/list";
     }
     
