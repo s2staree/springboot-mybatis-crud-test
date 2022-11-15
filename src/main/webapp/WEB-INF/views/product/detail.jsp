@@ -10,13 +10,13 @@
 			<li>
 				<div class="page_name">
 					<div>상품명</div>
-					<div>productName</div>
+					<div>${detail.productName}</div>
 				</div>
 			</li>
 			<li>
 				<div class="page_price">
 					<div>판매가</div>
-					<div>productPrice</div>
+					<div>${detail.productPrice}</div>
 				</div>
 			</li>
 			<li>
