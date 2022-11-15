@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'MonoplexKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/*------.detail시작------*/
+.detail_page {
+    width: 1000px;
+    display: -webkit-flex;
+    display: flex;
+    margin: 50px;
+}
+.page_thumbnail {
+    width: 398px;
+    height: 398px;
+    border: 1px dotted #607EAA;
+}
+.page_name {
+    width: 398px;
+    height: 98px;
+    border: 1px dotted #607EAA;
+}
+.page_price {
+    width: 398px;
+    height: 98px;
+    border: 1px dotted #607EAA;
+}
+.page_qty {
+    width: 398px;
+    height: 98px;
+    border: 1px dotted #607EAA;
+}
+.page_edit_delete {
+    width: 398px;
+    height: 98px;
+    border: 1px dotted #607EAA;
+    position: relative;
+}
+.page_delete {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+/*------.detail끝------*/
