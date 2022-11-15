@@ -12,13 +12,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>productId</td>
-					<td>productName</td>
-					<td>productPrice</td>
-					<td>productQty</td>
-					<td>createdAt</td>
-				</tr>
+				<c:forEach var="list" items="${list}">
+					<tr>
+						<td>${list.productId}</td>
+						<td>${list.productName}</td>
+						<td>${list.productPrice}</td>
+						<td>${list.productQty}</td>
+						<td>${list.createdAt}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
