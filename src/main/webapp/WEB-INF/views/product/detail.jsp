@@ -37,9 +37,11 @@
 			</li>
 			<li>
 				<div class="page_edit_delete">
-					<div class="page_edit">
-						<button type="button">수정</button>
-					</div>
+					<form action="/product/${productId}/edit" method="get">
+						<div class="page_edit">
+							<button type="submit">수정</button>
+						</div>
+					</form>
 					<div class="page_delete">
 						<button type="button">삭제</button>
 					</div>

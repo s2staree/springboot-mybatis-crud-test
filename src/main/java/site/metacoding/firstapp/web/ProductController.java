@@ -27,30 +27,39 @@ public class ProductController {
 	}
 
 	// 상품목록보기
-    @GetMapping({"/product", "/"})
-    public String findAll(Model model) { // Model model: 페이지(jsp) view로 가져오기 위해서 사용. Request(요청)같은 기능.
-    	List<Product> productPS = productDao.findAll();
-    	model.addAttribute("list", productPS);
-        return "product/list";
-    }
+	@GetMapping({ "/product", "/" })
+	public String findAll(Model model) { // Model model: 페이지(jsp) view로 가져오기 위해서 사용. Request(요청)같은 기능.
+		List<Product> productPS = productDao.findAll();
+		model.addAttribute("list", productPS);
+		return "product/list";
+	}
 
-    // 상품등록하기 Form
-    @GetMapping("/product/add")
-    public String insertForm() {
-        return "product/add";
-    }
-    
-    // 상품등록하기
-    @PostMapping("/product/add")
-    public String insert(Product product) {
-    	productDao.insert(product);
-    	return "redirect:/";
-    }
+	// 상품등록하기 Form
+	@GetMapping("/product/add")
+	public String insertForm() {
+		return "product/add";
+	}
+
+	// 상품등록하기
+	@PostMapping("/product/add")
+	public String insert(Product product) {
+		productDao.insert(product);
+		return "redirect:/";
+	}
 
 	// 상품수정하기 Form
 	@GetMapping("/product/{productId}/edit")
-	public String updateForm() {
+	public String updateForm(@PathVariable Integer productId, Model model) {
+		Product productPS = productDao.findById(productId);
+		model.addAttribute("edit", productPS);
 		return "product/edit";
+	}
+
+	// 상품수정하기
+	@PostMapping("/product/{productId}/edit") // 위 Form 코드의 매핑주소와 통일해야 함.
+	public String update(Product product) { // 위 Form 코드에서 id값을 이미 받아왔기 때문에 @PathVariable 안 붙여도 됨.
+		productDao.update(product);
+		return "redirect:/";
 	}
 
 }
