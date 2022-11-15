@@ -42,9 +42,11 @@
 							<button type="submit">수정</button>
 						</div>
 					</form>
-					<div class="page_delete">
-						<button type="button">삭제</button>
-					</div>
+					<form action="/product/${productId}/delete" method="post">
+						<div class="page_delete">
+							<button type="submit">삭제</button>
+						</div>
+					</form>
 				</div>
 			</li>
 		</ul>
