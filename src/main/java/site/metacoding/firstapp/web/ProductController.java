@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Product;
@@ -33,11 +34,18 @@ public class ProductController {
         return "product/list";
     }
 
-	// 상품등록하기 Form
-	@GetMapping("/product/add")
-	public String insertForm() {
-		return "product/add";
-	}
+    // 상품등록하기 Form
+    @GetMapping("/product/add")
+    public String insertForm() {
+        return "product/add";
+    }
+    
+    // 상품등록하기
+    @PostMapping("/product/add")
+    public String insert(Product product) {
+    	productDao.insert(product);
+    	return "redirect:/";
+    }
 
 	// 상품수정하기 Form
 	@GetMapping("/product/{productId}/edit")
