@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Product;
 import site.metacoding.firstapp.domain.ProductDao;
+import site.metacoding.firstapp.service.ProductService;
 import site.metacoding.firstapp.web.dto.response.CMRespDto;
 
 @RequiredArgsConstructor // 밑의 코드에서 선언한 코드를 new해서 안 불러도 되게 해주는 어노테이션.
@@ -20,6 +21,7 @@ import site.metacoding.firstapp.web.dto.response.CMRespDto;
 public class ProductController {
 
 	private final ProductDao productDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
+	private final ProductService productService;
 
 	// 상품상세보기
 	@GetMapping({ "/product/{productId}", "/product/{productId}/detail" })
@@ -46,13 +48,19 @@ public class ProductController {
 	// 상품등록하기
 	@PostMapping("/product/add")
 	public @ResponseBody CMRespDto<?> insert(@RequestBody Product product) {
-		productDao.insert(product);
-		
-		System.out.println("디버그: " + product.getProductName());
-		System.out.println("디버그: " + product.getProductPrice());
-		System.out.println("디버그: " + product.getProductQty());
-		
+		productDao.insert(product);		
+//		System.out.println("디버그: " + product.getProductName());
+//		System.out.println("디버그: " + product.getProductPrice());
+//		System.out.println("디버그: " + product.getProductQty());		
 		return new CMRespDto<>(1, "상품등록성공", null); // 1: 성공 / -1: 실패
+	}
+	
+	// 상품명 중복확인
+	// http://localhost:8080/api/product/isProductNameSameCheck?productName=딸기
+	@GetMapping("/api/product/isProductNameSameCheck")
+	public @ResponseBody CMRespDto<Boolean> isProductNameSameCheck(String productName) {
+		boolean isSame = productService.상품명중복확인(productName);
+		return new CMRespDto<>(1, "성공", isSame);
 	}
 
 	// 상품수정하기 Form
