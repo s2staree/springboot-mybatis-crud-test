@@ -7,10 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Product;
 import site.metacoding.firstapp.domain.ProductDao;
+import site.metacoding.firstapp.web.dto.response.CMRespDto;
 
 @RequiredArgsConstructor // 밑의 코드에서 선언한 코드를 new해서 안 불러도 되게 해주는 어노테이션.
 @Controller
@@ -42,9 +45,14 @@ public class ProductController {
 
 	// 상품등록하기
 	@PostMapping("/product/add")
-	public String insert(Product product) {
+	public @ResponseBody CMRespDto<?> insert(@RequestBody Product product) {
 		productDao.insert(product);
-		return "redirect:/";
+		
+		System.out.println("디버그: " + product.getProductName());
+		System.out.println("디버그: " + product.getProductPrice());
+		System.out.println("디버그: " + product.getProductQty());
+		
+		return new CMRespDto<>(1, "상품등록성공", null); // 1: 성공 / -1: 실패
 	}
 
 	// 상품수정하기 Form
