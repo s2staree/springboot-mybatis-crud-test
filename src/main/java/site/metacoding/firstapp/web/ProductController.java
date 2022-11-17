@@ -48,10 +48,7 @@ public class ProductController {
 	// 상품등록하기
 	@PostMapping("/product/add")
 	public @ResponseBody CMRespDto<?> insert(@RequestBody Product product) {
-		productDao.insert(product);		
-//		System.out.println("디버그: " + product.getProductName());
-//		System.out.println("디버그: " + product.getProductPrice());
-//		System.out.println("디버그: " + product.getProductQty());		
+		productDao.insert(product);	// 상품등록후 db에 저장
 		return new CMRespDto<>(1, "상품등록성공", null); // 1: 성공 / -1: 실패
 	}
 	

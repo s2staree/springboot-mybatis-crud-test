@@ -13,6 +13,7 @@ public class ProductService {
 	private final ProductDao productDao;
 	
 	public boolean 상품명중복확인(String productName) {
+		
 		Product productPS = productDao.findByProductName(productName);
 		
 		if(productPS == null) { // 상품명 중복 아님

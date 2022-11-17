@@ -1,5 +1,6 @@
 
 let isProductNameSameCheck = false;	// let = var
+let isProductNameState = "";
 
 $("#btnProductAdd").click(() => {
 	productAdd();
@@ -10,6 +11,16 @@ $("#btnProductNameSameCheck").click(() => {
 });
 
 function productAdd() {
+	
+	if(isProductNameSameCheck == false){
+		alert("상품명 중복확인 후 다시 시도해 주세요.");
+		return;
+	}
+	
+	if(!(isProductNameState == $("#productName").val())){
+		alert("상품명 중복확인 후 다시 시도해 주세요.");
+		return;
+	}
 
 	let data = { // 1) 보낼 데이터를 가져오자
 		productName: $("#productName").val(), // 변수명: $("#id에 적은 내용").val()
@@ -47,6 +58,7 @@ function productNameSameCheck() {
 			if (res.data == false) {
 				alert("사용 가능한 상품명입니다.");
 				isProductNameSameCheck = true;
+				isProductNameState = productName;
 			} else {
 				alert("이미 사용 중인 상품명입니다.");
 				isProductNameSameCheck = false;
