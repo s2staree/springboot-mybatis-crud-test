@@ -9,16 +9,27 @@
 
 
 /*------.list시작------*/
-.list_box .box_table{
+.list_box .box_table {
     width: 90%;
     margin: 50px auto;
     border-collapse: collapse;
 }
-.list_box .box_table thead tr th{
+
+.list_box .box_table thead tr th {
     border: 1px solid #607EAA;
+    background-color: #607EAA;
+    color: #ffffff;
+    font-weight: 500;
 }
-.list_box .box_table tbody tr td{
+
+.list_box .box_table tbody tr td {
     border: 1px solid #607EAA;
     text-align: center;
 }
+
+.list_box .box_table .table_item {
+    background-color: #91a7c8;
+    color: #ffffff;
+}
+
 /*------.list끝------*/

@@ -13,22 +13,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Product;
 import site.metacoding.firstapp.domain.ProductDao;
-import site.metacoding.firstapp.service.ProductService;
+import site.metacoding.firstapp.service.AdminService;
 import site.metacoding.firstapp.web.dto.response.CMRespDto;
 
 @RequiredArgsConstructor // 밑의 코드에서 선언한 코드를 new해서 안 불러도 되게 해주는 어노테이션.
 @Controller
-public class ProductController {
+public class AdminController {
 
 	private final ProductDao productDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
-	private final ProductService productService;
+	private final AdminService adminService;
 
 	// 상품상세보기
 	@GetMapping({ "/product/{productId}", "/product/{productId}/detail" })
 	public String findById(@PathVariable Integer productId, Model model) { // @PathVariable: 매핑주소에서 id값을 찾을때 매개변수에 붙여줌.
 		Product productPS = productDao.findById(productId); // 영속화 되어있는 값을 가져올 때 PS를 붙임.
 		model.addAttribute("detail", productPS);
-		return "product/detail";
+		return "admin/product/detail";
 	}
 
 	// 상품목록보기
@@ -36,27 +36,27 @@ public class ProductController {
 	public String findAll(Model model) { // Model model: 페이지(jsp) view로 가져오기 위해서 사용. Request(요청)같은 기능.
 		List<Product> productPS = productDao.findAll();
 		model.addAttribute("list", productPS);
-		return "product/list";
+		return "admin/product/list";
 	}
 
 	// 상품등록하기 Form
 	@GetMapping("/product/add")
 	public String insertForm() {
-		return "product/add";
+		return "admin/product/add";
 	}
 
 	// 상품등록하기
 	@PostMapping("/product/add")
 	public @ResponseBody CMRespDto<?> insert(@RequestBody Product product) {
-		productDao.insert(product);	// 상품등록후 db에 저장
+		productDao.insert(product); // 상품등록후 db에 저장
 		return new CMRespDto<>(1, "상품등록성공", null); // 1: 성공 / -1: 실패
 	}
-	
+
 	// 상품명 중복확인
 	// http://localhost:8080/api/product/isProductNameSameCheck?productName=딸기
 	@GetMapping("/api/product/isProductNameSameCheck")
 	public @ResponseBody CMRespDto<Boolean> isProductNameSameCheck(String productName) {
-		boolean isSame = productService.상품명중복확인(productName);
+		boolean isSame = adminService.상품명중복확인(productName);
 		return new CMRespDto<>(1, "성공", isSame);
 	}
 
@@ -65,7 +65,7 @@ public class ProductController {
 	public String updateForm(@PathVariable Integer productId, Model model) {
 		Product productPS = productDao.findById(productId);
 		model.addAttribute("edit", productPS);
-		return "product/edit";
+		return "admin/product/edit";
 	}
 
 	// 상품수정하기
@@ -75,11 +75,11 @@ public class ProductController {
 		return "redirect:/";
 	}
 
-    // 상품삭제하기
-    @PostMapping("/product/{productId}/delete")
-    public String deleteById(@PathVariable Integer productId) {
-    	productDao.deleteById(productId);
-        return "redirect:/";
-    }
-    
+	// 상품삭제하기
+	@PostMapping("/product/{productId}/delete")
+	public String deleteById(@PathVariable Integer productId) {
+		productDao.deleteById(productId);
+		return "redirect:/";
+	}
+
 }
