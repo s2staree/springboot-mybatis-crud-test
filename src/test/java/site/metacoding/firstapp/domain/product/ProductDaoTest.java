@@ -12,8 +12,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.context.annotation.Import;
 
 import site.metacoding.firstapp.config.MyBatisConfig;
-import site.metacoding.firstapp.domain.Product;
-import site.metacoding.firstapp.domain.ProductDao;
 
 @Import(MyBatisConfig.class) // MyBatisTest가 MyBatisConfig를 못읽음
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // 실DB사용

@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'MonoplexKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+	font-family: 'MonoplexKR-Regular';
+
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+
+/*------.header시작------*/
+.header{
+	height: 60px;
+	background-color: #F9F5EB;
+}
+
+.header_menu{
+    display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+}
+
+.header_menu a{
+    color: #1C3879;
+	line-height: 60px;
+	font-size: 14px;
+	font-weight: bolder;
+	margin-right: 50px;
+}
+
+.header_menu a:last-child{
+    margin-right: 0
+}
+/*------.header끝------*/

@@ -16,7 +16,7 @@
 							<td>상품명</td>
 							<td>판매가</td>
 							<td>재고수량</td>
-							<td>상품등록일</td>
+							<td>상세페이지</td>
 						</tr>
 						<c:forEach var="list" items="${list}">
 							<tr>
@@ -24,7 +24,7 @@
 								<td>${list.productName}</td>
 								<td>${list.productPrice}</td>
 								<td>${list.productQty}</td>
-								<td>${list.createdAt}</td>
+								<td><a href="/admin/product/{productId}"></a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

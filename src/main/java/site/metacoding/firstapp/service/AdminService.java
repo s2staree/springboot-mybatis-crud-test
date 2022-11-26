@@ -3,8 +3,8 @@ package site.metacoding.firstapp.service;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.firstapp.domain.Product;
-import site.metacoding.firstapp.domain.ProductDao;
+import site.metacoding.firstapp.domain.product.Product;
+import site.metacoding.firstapp.domain.product.ProductDao;
 
 @RequiredArgsConstructor
 @Service

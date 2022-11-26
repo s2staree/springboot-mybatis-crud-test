@@ -2,15 +2,15 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="site.metacoding.firstapp.domain.ProductDao">
+<mapper namespace="site.metacoding.firstapp.domain.product.ProductDao">
 
 	<select id="findById"
-		resultType="site.metacoding.firstapp.domain.Product">
+		resultType="site.metacoding.firstapp.domain.product.Product">
 		SELECT * FROM product WHERE product_id = #{productId}
 	</select>
 
 	<select id="findAll"
-		resultType="site.metacoding.firstapp.domain.Product">
+		resultType="site.metacoding.firstapp.domain.product.Product">
 		SELECT * FROM product ORDER BY product_id DESC
 	</select>
 
@@ -35,7 +35,7 @@
 	</delete>
 
 	<select id="findByProductName"
-		resultType="site.metacoding.firstapp.domain.Product">
+		resultType="site.metacoding.firstapp.domain.product.Product">
 		SELECT * FROM product WHERE product_name = #{productName}
 	</select>
 
