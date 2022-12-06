@@ -15,35 +15,38 @@
     display: flex;
     margin: 50px;
 }
+
 .page_thumbnail {
     width: 398px;
     height: 398px;
     border: 1px dotted #607EAA;
 }
+
 .page_name {
     width: 398px;
     height: 98px;
     border: 1px dotted #607EAA;
 }
+
 .page_price {
     width: 398px;
     height: 98px;
     border: 1px dotted #607EAA;
 }
+
 .page_qty {
     width: 398px;
     height: 98px;
     border: 1px dotted #607EAA;
 }
-.page_edit_delete {
+
+.page_buy {
     width: 398px;
     height: 98px;
     border: 1px dotted #607EAA;
     position: relative;
 }
-.page_delete {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-}
+
+.page_buy_btn {}
+
 /*------.detail끝------*/

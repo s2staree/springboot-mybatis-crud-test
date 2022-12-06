@@ -8,15 +8,19 @@
 }
 
 
-/*------.add시작------*/
-.add{
+/*------.join시작------*/
+.join {
     width: 90%;
     margin: 50px auto;
 }
-.add_name, .add_price, .add_qty, .add_thumbnail{
+
+.join_name,
+.join_password,
+.join_email {
     border: 1px solid #607EAA;
     border-radius: 3px;
     padding: 10px;
     margin-bottom: 10px;
 }
-/*------.add끝------*/
+
+/*------.join끝------*/

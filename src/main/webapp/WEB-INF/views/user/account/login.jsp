@@ -1,30 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ include file="../layout/header.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+	<%@ include file="../layout/header.jsp" %>
 
-<!------.edit시작------>
-<form action="/product/${edit.productId}/edit" method="post">
-	<section class="edit">
-		<h1>상품정보수정</h1>
-		<div class="edit_name">
-			<h2>상품명</h2>
-			<input type="text" name="productName" value="${edit.productName}">
-		</div>
-		<div class="edit_qty">
-			<h2>판매가</h2>
-			<input type="text" name="productPrice" value="${edit.productPrice}">
-		</div>
-		<div class="edit_price">
-			<h2>재고수량</h2>
-			<input type="text" name="productQty" value="${edit.productQty}">
-		</div>
-		<div class="edit_thumbnail">
-			<h2>대표이미지</h2>
-			<button type="button">업로드</button>
-		</div>
-		<button type="submit">저장하기</button>
-	</section>
-</form>
-<!------.edit끝------>
+		<!------.login시작------>
+		<form action="/account/${login.userId}/login" method="post">
+			<section class="login">
+				<h1>회원로그인</h1>
+				<div class="login_name">
+					<h2>아이디</h2>
+					<input type="text" name="userName" value="${login.userName}">
+				</div>
+				<div class="login_password">
+					<h2>패스워드</h2>
+					<input type="text" name="userPassword" value="${login.userPassword}">
+				</div>
+				<button type="submit">로그인</button>
+				<button type="submit">회원가입</button>
+			</section>
+		</form>
+		<!------.login끝------>
 
-<%@ include file="../layout/footer.jsp"%>
+		<%@ include file="../layout/footer.jsp" %>

@@ -17,11 +17,17 @@ public class UserController {
 	private final ProductDao productDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
 
 	// 메인페이지 (유저상품목록보기)
-	@GetMapping({ "/main", "/" })
-	public String mainPage(Model model) { // Model model: 페이지(jsp) view로 가져오기 위해서 사용. Request(요청)같은 기능.
+	@GetMapping({ "/home", "/" })
+	public String homePage(Model model) { // Model model: 페이지(jsp) view로 가져오기 위해서 사용. Request(요청)같은 기능.
 		List<Product> productPS = productDao.findAll();
 		model.addAttribute("list", productPS);
 		return "user/product/list";
+	}
+
+	// 구매페이지 (유저상품상세보기)
+	@GetMapping("/product/{productId}")
+	public String buyPage() {
+		return "user/product/detail";
 	}
 
 	// 로그인 Form

@@ -8,15 +8,18 @@
 }
 
 
-/*------.edit시작------*/
-.edit{
+/*------.login시작------*/
+.login {
     width: 90%;
     margin: 50px auto;
 }
-.edit_name, .edit_qty, .edit_price, .edit_thumbnail{
+
+.login_name,
+.login_password {
     border: 1px solid #607EAA;
     border-radius: 3px;
     padding: 10px;
     margin-bottom: 10px;
 }
-/*------.edit끝------*/
+
+/*------.login끝------*/

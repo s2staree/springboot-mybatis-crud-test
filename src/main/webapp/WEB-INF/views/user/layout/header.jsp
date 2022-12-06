@@ -11,10 +11,10 @@
 			<link href="/css/user/layout/reset.css" rel="stylesheet">
 			<link href="/css/user/layout/header.css" rel="stylesheet">
 			<link href="/css/user/layout/footer.css" rel="stylesheet">
-			<link href="/css/user/product/add.css" rel="stylesheet">
-			<link href="/css/user/product/detail.css" rel="stylesheet">
 			<link href="/css/user/product/list.css" rel="stylesheet">
-			<link href="/css/user/product/edit.css" rel="stylesheet">
+			<link href="/css/user/product/detail.css" rel="stylesheet">
+			<link href="/css/user/account/login.css" rel="stylesheet">
+			<link href="/css/user/account/join.css" rel="stylesheet">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		</head>
 
@@ -22,8 +22,10 @@
 			<!------.header시작------>
 			<header class="header">
 				<div class="header_menu">
-					<a href="/product/add">상품등록</a>
-					<a href="/product">상품목록</a>
+					<a href="/">홈</a>
+					<a href="/join">회원가입</a>
+					<a href="/login">로그인</a>
+					<a href="/admin">관리자모드</a>
 				</div>
 			</header>
 			<!------.header끝------>
