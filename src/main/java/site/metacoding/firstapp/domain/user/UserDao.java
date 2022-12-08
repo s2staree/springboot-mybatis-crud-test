@@ -10,7 +10,7 @@ public interface UserDao {
 
     public Product findByProductId(Integer productId); // 상품Id찾기
 
-    public User findByUserId(String userId); // 회원이름찾기
+    public User findByUserId(String userId); // 회원Id찾기
 
     public User findByUserName(String userName); // 회원이름찾기
 
