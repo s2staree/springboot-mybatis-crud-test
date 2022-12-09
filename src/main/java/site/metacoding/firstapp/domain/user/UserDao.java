@@ -1,14 +1,6 @@
 package site.metacoding.firstapp.domain.user;
 
-import java.util.List;
-
-import site.metacoding.firstapp.domain.product.Product;
-
 public interface UserDao {
-
-    public List<Product> findAllProducts(); // 상품목록보기
-
-    public Product findByProductId(Integer productId); // 상품Id찾기
 
     public User findByUserId(String userId); // 회원Id찾기
 

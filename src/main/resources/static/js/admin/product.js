@@ -11,13 +11,13 @@ $("#btnProductNameSameCheck").click(() => {
 });
 
 function productAdd() {
-	
-	if(isProductNameSameCheck == false){
+
+	if (isProductNameSameCheck == false) {
 		alert("상품명 중복확인 후 다시 시도해 주세요.");
 		return;
 	}
-	
-	if(!(isProductNameState == $("#productName").val())){
+
+	if (!(isProductNameState == $("#productName").val())) {
 		alert("상품명 중복확인 후 다시 시도해 주세요.");
 		return;
 	}
@@ -28,7 +28,7 @@ function productAdd() {
 		productQty: $("#productQty").val()
 	};
 
-	$.ajax("/product/add", { // 데이터 보낼 주소
+	$.ajax("/admin/product/add", { // 데이터 보낼 주소
 		type: "POST", // 주소의 Mapping 타입
 		dataType: "json",  // 응답 데이터. 데이터 타입 알려주기
 		data: JSON.stringify(data), // 2) http body에 들고갈 요청 데이터. 위에 3개의 데이터를 담아서 보내자
@@ -49,7 +49,7 @@ function productNameSameCheck() {
 
 	let productName = $("#productName").val();
 
-	$.ajax(`/api/product/isProductNameSameCheck?productName=${productName}`, {
+	$.ajax(`/api/admin/product/isProductNameSameCheck?productName=${productName}`, {
 		type: "GET",
 		dataType: "json",
 		async: true

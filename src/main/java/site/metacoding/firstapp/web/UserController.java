@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.product.Product;
 import site.metacoding.firstapp.domain.product.ProductDao;
+import site.metacoding.firstapp.domain.user.User;
+import site.metacoding.firstapp.domain.user.UserDao;
 
 @RequiredArgsConstructor // 밑의 코드에서 선언한 코드를 new해서 안 불러도 되게 해주는 어노테이션.
 @Controller
 public class UserController {
 
 	private final ProductDao productDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
+	private final UserDao userDao;
 
 	// 메인페이지 (유저상품목록보기)
 	@GetMapping({ "/home", "/" })
@@ -41,6 +44,13 @@ public class UserController {
 	@GetMapping("/join")
 	public String joinForm() {
 		return "user/account/join";
+	}
+
+	// 회원가입
+	@PostMapping("/join")
+	public String join(User user) {
+		userDao.join(user);
+		return "redirect:/";
 	}
 
 }
