@@ -7,7 +7,7 @@
 			<meta charset="UTF-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>상품관리</title>
+			<title>쇼핑몰</title>
 			<link href="/css/user/layout/reset.css" rel="stylesheet">
 			<link href="/css/user/layout/header.css" rel="stylesheet">
 			<link href="/css/user/layout/footer.css" rel="stylesheet">
@@ -22,10 +22,18 @@
 			<!------.header시작------>
 			<header class="header">
 				<div class="header_menu">
-					<a href="/">홈</a>
-					<a href="/join">회원가입</a>
-					<a href="/login">로그인</a>
-					<a href="/admin">관리자모드</a>
+					<c:choose>
+						<c:when test="${empty principal}">
+							<a href="/">홈</a>
+							<a href="/join">회원가입</a>
+							<a href="/login">로그인</a>
+							<a href="/admin">관리자모드</a>
+						</c:when>
+						<c:otherwise>
+							<a href="/">홈</a>
+							<a href="/logout">로그아웃</a>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</header>
 			<!------.header끝------>

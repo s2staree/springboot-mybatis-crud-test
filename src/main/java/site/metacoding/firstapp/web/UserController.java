@@ -23,7 +23,7 @@ public class UserController {
 
 	private final ProductDao productDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
 	private final UserDao userDao;
-	private final HttpSession session;
+	private final HttpSession session; // 인증시 필요한 코드. 스프링이 서버시작시에 IoC 컨테이너에 보관함.
 
 	// 메인페이지 (유저상품목록보기)
 	@GetMapping({ "/home", "/" })
@@ -65,12 +65,19 @@ public class UserController {
 		User userPS = userDao.login(userLoginDto); // login할 때 적힌 데이터를 담음.
 
 		if (userPS != null) { // user 엔티티에 해당 데이터가 있으면
-			session.setAttribute("principal", userPS); // 인증
+			session.setAttribute("principal", userPS); // 인증. (통째로 외우자.)
 			return "redirect:/"; // 홈으로 이동.
 		} else { // 없으면
 			return "redirect:/login"; // 다시 로그인 페이지.
 		}
 
+	}
+
+	// 로그아웃
+	@GetMapping("/logout")
+	public String logout() {
+		session.invalidate(); // 로그아웃할 때 사용. (통째로 외우면 됨.)
+		return "redirect:/";
 	}
 
 }
