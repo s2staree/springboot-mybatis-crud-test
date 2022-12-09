@@ -14,6 +14,7 @@ import site.metacoding.firstapp.domain.product.Product;
 import site.metacoding.firstapp.domain.product.ProductDao;
 import site.metacoding.firstapp.domain.user.User;
 import site.metacoding.firstapp.domain.user.UserDao;
+import site.metacoding.firstapp.web.dto.request.UserJoinDto;
 import site.metacoding.firstapp.web.dto.request.UserLoginDto;
 
 @RequiredArgsConstructor // 밑의 코드에서 선언한 코드를 new해서 안 불러도 되게 해주는 어노테이션.
@@ -46,8 +47,8 @@ public class UserController {
 
 	// 회원가입
 	@PostMapping("/join")
-	public String join(User user) {
-		userDao.join(user);
+	public String join(UserJoinDto userJoinDto) {
+		userDao.join(userJoinDto);
 		return "redirect:/";
 	}
 
