@@ -19,7 +19,7 @@ import site.metacoding.firstapp.config.MyBatisConfig;
 public class ProductDaoTest {
 
     @Autowired
-    private OrdersDao productDao;
+    private ProductDao productDao;
 
     @Test
     public void findById_test() {
