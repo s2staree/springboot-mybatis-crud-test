@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.product.Product;
 import site.metacoding.firstapp.domain.product.ProductDao;
-import site.metacoding.firstapp.service.AdminService;
+import site.metacoding.firstapp.service.ProductService;
 import site.metacoding.firstapp.web.dto.response.CMRespDto;
 
 @RequiredArgsConstructor // 밑의 코드에서 선언한 코드를 new해서 안 불러도 되게 해주는 어노테이션.
 @Controller
-public class AdminController {
+public class ProductController {
 
 	private final ProductDao productDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
-	private final AdminService adminService;
+	private final ProductService productService;
 
 	// 상품상세보기
 	@GetMapping({ "/admin/product/{productId}", "/admin/product/{productId}/detail" })
@@ -56,7 +56,7 @@ public class AdminController {
 	// http://localhost:8080/api/admin/product/isProductNameSameCheck?productName=딸기
 	@GetMapping("/api/admin/product/isProductNameSameCheck")
 	public @ResponseBody CMRespDto<Boolean> isProductNameSameCheck(String productName) {
-		boolean isSame = adminService.상품명중복확인(productName);
+		boolean isSame = productService.상품명중복확인(productName);
 		return new CMRespDto<>(1, "성공", isSame);
 	}
 
@@ -72,14 +72,14 @@ public class AdminController {
 	@PostMapping("/admin/product/{productId}/edit") // 위 Form 코드의 매핑주소와 통일해야 함.
 	public String update(Product product) { // 위 Form 코드에서 id값을 이미 받아왔기 때문에 @PathVariable 안 붙여도 됨.
 		productDao.update(product);
-		return "redirect:/";
+		return "redirect:/admin/product";
 	}
 
 	// 상품삭제하기
 	@PostMapping("/admin/product/{productId}/delete")
 	public String deleteById(@PathVariable Integer productId) {
 		productDao.deleteById(productId);
-		return "redirect:/";
+		return "redirect:/admin/product";
 	}
 
 }

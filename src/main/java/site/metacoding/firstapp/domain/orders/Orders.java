@@ -3,7 +3,9 @@ package site.metacoding.firstapp.domain.orders;
 import java.sql.Timestamp;
 
 import lombok.Getter;
+import lombok.Setter;
 
+@Setter
 @Getter
 public class Orders {
     private Integer orderId;

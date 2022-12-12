@@ -40,12 +40,13 @@
     border: 1px dotted #607EAA;
 }
 
-.page_buy {
+.page_qty_order {
     width: 398px;
     height: 98px;
     border: 1px dotted #607EAA;
-    position: relative;
 }
+
+.page_buy {}
 
 .page_buy_btn {}
 

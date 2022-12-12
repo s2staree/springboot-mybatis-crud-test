@@ -12,11 +12,12 @@
 					</thead>
 					<tbody>
 						<tr class="table_item">
-							<td></td>
+							<td>No.</td>
 							<td>상품명</td>
 							<td>판매가</td>
-							<td>재고수량</td>
+							<td>재고</td>
 							<td>상품등록일</td>
+							<td>상세보기</td>
 						</tr>
 						<c:forEach var="list" items="${list}">
 							<tr>
@@ -25,6 +26,7 @@
 								<td>${list.productPrice}</td>
 								<td>${list.productQty}</td>
 								<td>${list.createdAt}</td>
+								<td><a href="/admin/product/${list.productId}">상세보기</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

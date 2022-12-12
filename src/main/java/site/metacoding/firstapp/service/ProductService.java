@@ -8,7 +8,7 @@ import site.metacoding.firstapp.domain.product.ProductDao;
 
 @RequiredArgsConstructor
 @Service
-public class AdminService {
+public class ProductService {
 
 	private final ProductDao productDao;
 

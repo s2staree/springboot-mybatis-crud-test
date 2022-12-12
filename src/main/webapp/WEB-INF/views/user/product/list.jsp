@@ -15,8 +15,8 @@
 							<td>No.</td>
 							<td>상품명</td>
 							<td>판매가</td>
-							<td>재고수량</td>
-							<td>-</td>
+							<td>재고</td>
+							<td>구매하기</td>
 						</tr>
 						<c:forEach var="list" items="${list}">
 							<tr>
@@ -24,7 +24,7 @@
 								<td>${list.productName}</td>
 								<td>${list.productPrice}</td>
 								<td>${list.productQty}</td>
-								<td><a href="#">구매하기</a></td>
+								<td><a href="/product/${list.productId}">구매하기</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
