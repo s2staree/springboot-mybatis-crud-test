@@ -31,7 +31,7 @@
 						<li>
 							<div class="page_qty_order">
 								<div>구매수량</div>
-								<input type="text" name="orderProductQty">
+								<input type="number" name="orderProductQty" min="1"> <!-- 값 1부터 입력되게 하기 -->
 							</div>
 						</li>
 						<li>

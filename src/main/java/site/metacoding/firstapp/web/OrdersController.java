@@ -71,20 +71,18 @@ public class OrdersController {
 		// 상품Id로 해당 상품 찾아서 상품DB 담음.
 		Product productPS = productDao.findById(productId);
 
-		// 잘못된 수량 주문 막기.
-		// product qty = product qty - orders qty, 머시기 = productDao.updateQty
-		/*
-		 * if(머시기<0){
-		 * return 안돼요 싫어요 수량이 안맞아요
-		 * 
-		 * }
-		 */
+		// 잘못된 수량 주문 막기. (상품DB 재고 - 주문수량 < 0)
+		if (productPS.getProductQty() - productOrdersDto.getOrderProductQty() < 0) {
+			return "redirect:/product/{productId}"; // 안돼요 싫어요 수량이 안맞아요
+		}
+		// if문이 참일 경우: 잘못된 수량 (상품수량<주문수량) 이므로 if문 내부의 return까지만 실행!
+		// if문이 거짓일 경우: 제대로 된 수량 (상품수량>주문수량) 이므로 다음 코드부터 실행!
 
 		// 상품DB에 재고 수정.
 		productDao.productQtyUpdate(productOrdersDto);
 
 		// 주문DB에 주문 추가.
-		ordersDao.insert(productOrdersDto.toEntity(principal.getUserId()));
+		ordersDao.insert(productOrdersDto.toEntity(principal.getUserId(), principal.getUserName()));
 
 		return "redirect:/";
 
