@@ -8,7 +8,7 @@ public interface OrdersDao {
 
     public List<Orders> findAll();
 
-    public void insert(Orders orders);
+    public void insert(Orders orders); // 주문 추가
 
     public void update(Orders orders);
 

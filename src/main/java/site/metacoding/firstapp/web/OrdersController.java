@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.firstapp.domain.orders.Orders;
 import site.metacoding.firstapp.domain.orders.OrdersDao;
 import site.metacoding.firstapp.domain.product.Product;
 import site.metacoding.firstapp.domain.product.ProductDao;
 import site.metacoding.firstapp.domain.user.User;
+import site.metacoding.firstapp.web.dto.request.ProductOrdersDto;
 
 @RequiredArgsConstructor // 밑의 코드에서 선언한 코드를 new해서 안 불러도 되게 해주는 어노테이션.
 @Controller
@@ -47,22 +47,44 @@ public class OrdersController {
 
 	// 구매하기 (해당 상품 재고 -1)
 	@PostMapping("/product/{productId}/buy")
-	public String buy(@PathVariable Integer productId, Orders orders) { // 나 Orders 타입의 애들거 안받으면 일 안할거야 더줘도 안하고 덜주면 일할게
+	public String buy(@PathVariable Integer productId, ProductOrdersDto productOrdersDto) { // 나 ProductOrdersDto 타입의
+																							// 애들거 안받으면 일
+																							// 안할거야 더줘도 안하고 덜주면 일할게
 		// 디버깅 코드 잘 기억해야함!
 		// .get 을 잘 활용하자! getter 달려 있으면 다 가져올 수 있음
 		// .set은 변경시키겠다는 의미!
-		System.out.println("디버그 주문상품명" + orders.getOrderProductName()); // 주문상품
-		System.out.println("디버그 주문상품명" + orders.getOrderProductPrice()); // 주문가격
-		System.out.println("디버그 주문상품명" + orders.getOrderProductQty()); // 주문수량
+		System.out.println("디버그 주문상품명" + productOrdersDto.getOrderProductName()); // 주문상품
+		System.out.println("디버그 주문상품명" + productOrdersDto.getOrderProductPrice()); // 주문가격
+		System.out.println("디버그 주문상품명" + productOrdersDto.getOrderProductQty()); // 주문수량
 
 		// 구매한 유저의 로그인 정보를 가져옴.
 		User principal = (User) session.getAttribute("principal"); // 로그인 정보 가져오는 코드! 없으면 터짐
 
+		if (principal == null) { // 이거 적으면 안터지고 로그인 페이지로 이동, 인터셉터는 나중에 배우자 코드 복붙하면 됨, JWT도 공부해보자! 이거 쓰면 DB에서
+									// select 안해도 되고 인증 가능 autho 머시기 써서 토큰 정보 가져오면 페이지 방문할 때 토큰 없으면 돌려보냄, 페이로드 값
+									// 가져옴, 시그니처가 다른 2개 조합해서 만든건데 이걸로 만듦 JWT 목표는 암호화가 아니고 인증이 목표임 디코딩했을 때 비밀번호가 똑같이
+									// 암호화되는지 확인하고 드려보내주는데 제한시간도 걸 수 있고 필터를 사용해서 만들 수도 있고 컨트롤러에서 바로 토큰생성하는 코드 만들어
+									// 됨!!
+			return "redirect:/login";
+		}
+
 		// 상품Id로 해당 상품 찾아서 상품DB 담음.
 		Product productPS = productDao.findById(productId);
 
+		// 잘못된 수량 주문 막기.
+		// product qty = product qty - orders qty, 머시기 = productDao.updateQty
+		/*
+		 * if(머시기<0){
+		 * return 안돼요 싫어요 수량이 안맞아요
+		 * 
+		 * }
+		 */
+
+		// 상품DB에 재고 수정.
+		productDao.productQtyUpdate(productOrdersDto);
+
 		// 주문DB에 주문 추가.
-		ordersDao.insert(orders); // orders.getUserId() == Integer userId
+		ordersDao.insert(productOrdersDto.toEntity(principal.getUserId()));
 
 		return "redirect:/";
 

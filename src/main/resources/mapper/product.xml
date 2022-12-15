@@ -39,4 +39,11 @@
 		SELECT * FROM product WHERE product_name = #{productName}
 	</select>
 
+	<update id="productQtyUpdate">
+		UPDATE product p
+		INNER JOIN orders o ON p.product_id = o.product_id
+		SET p.product_qty = p.product_qty - #{orderProductQty}
+		WHERE p.product_id = #{productId}
+	</update>
+
 </mapper>
