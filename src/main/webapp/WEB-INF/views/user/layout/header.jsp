@@ -13,6 +13,7 @@
 			<link href="/css/user/layout/footer.css" rel="stylesheet">
 			<link href="/css/user/product/list.css" rel="stylesheet">
 			<link href="/css/user/product/detail.css" rel="stylesheet">
+			<link href="/css/user/product/orders.css" rel="stylesheet">
 			<link href="/css/user/account/login.css" rel="stylesheet">
 			<link href="/css/user/account/join.css" rel="stylesheet">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -31,6 +32,7 @@
 						</c:when>
 						<c:otherwise>
 							<a href="/">홈</a>
+							<a href="/order">구매목록</a>
 							<a href="/logout">로그아웃</a>
 						</c:otherwise>
 					</c:choose>

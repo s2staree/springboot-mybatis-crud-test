@@ -10,6 +10,9 @@
 
 	<select id="findAll"
 		resultType="site.metacoding.firstapp.domain.orders.Orders">
+		SELECT *
+		FROM orders
+		WHERE user_id = #{userId}
 	</select>
 
 	<insert id="insert">

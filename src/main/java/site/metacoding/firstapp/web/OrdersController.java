@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.firstapp.domain.orders.Orders;
 import site.metacoding.firstapp.domain.orders.OrdersDao;
 import site.metacoding.firstapp.domain.product.Product;
 import site.metacoding.firstapp.domain.product.ProductDao;
 import site.metacoding.firstapp.domain.user.User;
+import site.metacoding.firstapp.domain.user.UserDao;
 import site.metacoding.firstapp.web.dto.request.ProductOrdersDto;
 
 @RequiredArgsConstructor // 밑의 코드에서 선언한 코드를 new해서 안 불러도 되게 해주는 어노테이션.
@@ -23,6 +25,7 @@ public class OrdersController {
 
 	private final ProductDao productDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
 	private final OrdersDao ordersDao;
+	private final UserDao userDao;
 	private final HttpSession session;
 
 	// 메인페이지 (유저-상품목록보기)
@@ -85,6 +88,29 @@ public class OrdersController {
 		ordersDao.insert(productOrdersDto.toEntity(principal.getUserId(), principal.getUserName()));
 
 		return "redirect:/";
+
+	}
+
+	// 구매목록(주문목록)페이지
+	@GetMapping("/order")
+	public String orderList(Model model) {
+
+		User principal = (User) session.getAttribute("principal"); // 로그인 정보 가져오는 코드!
+
+		if (principal == null) { // 로그인 정보가 없으면,
+			return "redirect:/login"; // 로그인 페이지로 돌려보내기!
+		}
+
+		List<Orders> ordersPS = ordersDao.findAll(principal.getUserId()); // 로그인 정보를 가져와서 주문목록보기 기능에 넣고 List<Orders> 타입의
+																			// ordersPS에 담아놓기.
+
+		model.addAttribute("orderList", ordersPS);
+		// ordersList를 jsp의 forEach문의 items에 적고 var의 .뒤의 값들을 참조해서(ordersPS에 맞춰 적어야 함)
+		// model에 담고 뷰에 뿌림!
+		// List<Orders> ordersPS면 List<Orders> 타입이니까 jsp의 forEach문의 ${} 안에 Orders 엔티티
+		// 이름대로 맞춰줘야 됨!
+
+		return "user/product/orders";
 
 	}
 

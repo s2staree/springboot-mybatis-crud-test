@@ -11,4 +11,6 @@ public interface UserDao {
 
     public void logout(User user); // 로그아웃
 
+    public User findById(Integer userId); // 유저Id 찾기
+
 }
