@@ -26,7 +26,11 @@
 								<td>${orders.orderProductName}</td>
 								<td>${orders.orderProductPrice}</td>
 								<td>${orders.orderProductQty}</td>
-								<td><a href="#">구매취소</a></td>
+								<td>
+									<form action="/order/${orders.orderId}/cancel" method="post">
+										<button type="submit">구매취소</button>
+									</form>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

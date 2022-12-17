@@ -92,7 +92,7 @@ public class OrdersController {
 	}
 
 	// 구매목록(주문목록)페이지
-	@GetMapping("/order")
+	@GetMapping("/order") // session으로 유저 로그인 정보를 가져오기 때문에 매핑주소에 userId를 받을 필요없음. 오히려 넣으면 터짐.
 	public String orderList(Model model) {
 
 		User principal = (User) session.getAttribute("principal"); // 로그인 정보 가져오는 코드!
@@ -111,6 +111,16 @@ public class OrdersController {
 		// 이름대로 맞춰줘야 됨!
 
 		return "user/product/orders";
+
+	}
+
+	// 구매취소하기
+	@PostMapping("/order/{orderId}/cancel")
+	public String orderCancel(@PathVariable Integer orderId) {
+
+		ordersDao.deleteById(orderId);
+
+		return "redirect:/order";
 
 	}
 

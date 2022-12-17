@@ -12,6 +12,6 @@ public interface OrdersDao {
 
     public void update(Orders orders);
 
-    public void deleteById(Integer ordersId);
+    public void deleteById(Integer orderId); // 해당 주문삭제(구매취소)
 
 }
