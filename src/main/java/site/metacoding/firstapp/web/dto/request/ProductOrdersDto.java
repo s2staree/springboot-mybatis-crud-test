@@ -7,6 +7,7 @@ import site.metacoding.firstapp.domain.orders.Orders;
 @Setter
 @Getter
 public class ProductOrdersDto {
+    private Integer orderId;
     private Integer userId;
     private String orderUserName;
     private Integer productId;
@@ -19,7 +20,7 @@ public class ProductOrdersDto {
 
         // 앞에 this 붙이면 Dto에서 새로 입력한 정보 가져오는 것.
         // this 안 붙이면 원래 있던 데이터 가져오는 것!
-        Orders orders = new Orders(userId, orderUserName, this.productId, this.orderProductName,
+        Orders orders = new Orders(this.orderId, userId, orderUserName, this.productId, this.orderProductName,
                 this.orderProductPrice, this.orderProductQty);
         return orders;
     }

@@ -46,4 +46,11 @@
 		WHERE p.product_id = #{productId}
 	</update>
 
+	<update id="productQtyRestore">
+		UPDATE product p
+		INNER JOIN orders o ON p.product_id = o.product_id
+		SET p.product_qty = p.product_qty + #{orderProductQty}
+		WHERE p.product_id = #{productId}
+	</update>
+
 </mapper>

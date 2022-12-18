@@ -6,6 +6,9 @@
 
 	<select id="findById"
 		resultType="site.metacoding.firstapp.domain.orders.Orders">
+		SELECT *
+		FROM orders
+		WHERE order_id = #{orderId}
 	</select>
 
 	<select id="findAll"

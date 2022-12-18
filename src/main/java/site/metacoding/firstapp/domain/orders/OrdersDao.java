@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface OrdersDao {
 
-    public void findById(Integer orderId);
+    public Orders findById(Integer orderId); // 해당 주문건 찾기
 
     public List<Orders> findAll(Integer userId); // 해당 유저의 주문목록 보기
 

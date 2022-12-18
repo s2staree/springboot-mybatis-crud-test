@@ -32,7 +32,7 @@
 						</c:when>
 						<c:otherwise>
 							<a href="/">홈</a>
-							<a href="/order">구매목록</a>
+							<a href="/product/order">구매목록</a>
 							<a href="/logout">로그아웃</a>
 						</c:otherwise>
 					</c:choose>

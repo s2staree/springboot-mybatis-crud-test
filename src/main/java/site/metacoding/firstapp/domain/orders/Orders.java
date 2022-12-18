@@ -20,8 +20,9 @@ public class Orders {
     private Timestamp createdAt;
 
     // 클래스 외부에서 변수를 마음대로 접근할 수 있도록 생성자 만들기
-    public Orders(Integer userId, String orderUserName, Integer productId, String orderProductName,
+    public Orders(Integer orderId, Integer userId, String orderUserName, Integer productId, String orderProductName,
             Integer orderProductPrice, Integer orderProductQty) {
+        this.orderId = orderId;
         this.userId = userId;
         this.orderUserName = orderUserName;
         this.productId = productId;
@@ -29,4 +30,5 @@ public class Orders {
         this.orderProductPrice = orderProductPrice;
         this.orderProductQty = orderProductQty;
     }
+
 }

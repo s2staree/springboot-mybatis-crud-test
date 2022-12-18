@@ -24,7 +24,8 @@
 								<td>${list.productName}</td>
 								<td>${list.productPrice}</td>
 								<td>${list.productQty}</td>
-								<td><a href="/product/${list.productId}">구매하기</a></td>
+								<td><button type=button
+										onclick="location.href='/product/${list.productId}'">구매하기</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>

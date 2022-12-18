@@ -16,7 +16,6 @@ import site.metacoding.firstapp.domain.orders.OrdersDao;
 import site.metacoding.firstapp.domain.product.Product;
 import site.metacoding.firstapp.domain.product.ProductDao;
 import site.metacoding.firstapp.domain.user.User;
-import site.metacoding.firstapp.domain.user.UserDao;
 import site.metacoding.firstapp.web.dto.request.ProductOrdersDto;
 
 @RequiredArgsConstructor // 밑의 코드에서 선언한 코드를 new해서 안 불러도 되게 해주는 어노테이션.
@@ -25,7 +24,6 @@ public class OrdersController {
 
 	private final ProductDao productDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
 	private final OrdersDao ordersDao;
-	private final UserDao userDao;
 	private final HttpSession session;
 
 	// 메인페이지 (유저-상품목록보기)
@@ -86,13 +84,15 @@ public class OrdersController {
 
 		// 주문DB에 주문 추가.
 		ordersDao.insert(productOrdersDto.toEntity(principal.getUserId(), principal.getUserName()));
+		System.out.println("디버그 주문수:" + productOrdersDto.getOrderProductQty());
+		// 김지원한테 주문후 구매수량 찾는법 물어보기!!!!!!
 
 		return "redirect:/";
 
 	}
 
 	// 구매목록(주문목록)페이지
-	@GetMapping("/order") // session으로 유저 로그인 정보를 가져오기 때문에 매핑주소에 userId를 받을 필요없음. 오히려 넣으면 터짐.
+	@GetMapping("/product/order") // session으로 유저 로그인 정보를 가져오기 때문에 매핑주소에 userId를 받을 필요없음. 오히려 넣으면 터짐.
 	public String orderList(Model model) {
 
 		User principal = (User) session.getAttribute("principal"); // 로그인 정보 가져오는 코드!
@@ -115,12 +115,29 @@ public class OrdersController {
 	}
 
 	// 구매취소하기
-	@PostMapping("/order/{orderId}/cancel")
-	public String orderCancel(@PathVariable Integer orderId) {
+	@PostMapping("/product/{productId}/order/{orderId}/cancel") // 매퍼에서 조인으로 연결된 Id값이 있을 때, Id값을 못 찾아온다면 매핑주소에 추가해주면 해결될
+																// 것!
+	public String orderCancel(@PathVariable Integer productId, @PathVariable Integer orderId,
+			ProductOrdersDto productOrdersDto) {
 
-		ordersDao.deleteById(orderId);
+		User principal = (User) session.getAttribute("principal"); // 로그인 정보 가져오는 코드!
 
-		return "redirect:/order";
+		if (principal == null) { // 로그인 정보가 없으면,
+			return "redirect:/login"; // 로그인 페이지로 돌려보내기!
+		}
+
+		// 주문Id로 해당 주문 찾아서 주문DB 담음.
+		Orders ordersPS = ordersDao.findById(orderId);
+		System.out.println("디버그: " + orderId);
+
+		// 주문DB에 해당 주문건 삭제
+		ordersDao.deleteById(ordersPS.getOrderId());
+		System.out.println("디버그: " + productOrdersDto.getProductId());
+
+		// 상품DB에 해당 상품 재고 복원
+		productDao.productQtyRestore(productOrdersDto);
+
+		return "redirect:/product/order";
 
 	}
 

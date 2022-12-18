@@ -27,7 +27,14 @@
 								<td>${orders.orderProductPrice}</td>
 								<td>${orders.orderProductQty}</td>
 								<td>
-									<form action="/order/${orders.orderId}/cancel" method="post">
+									<form action="/product/${orders.productId}/order/${orders.orderId}/cancel"
+										method="post">
+										<!-- 오류에서 null 값이 뜨면 post 안에서 넘어가야 할 값이 없다는 의미이므로 input태그로 hidden 속성을 넣고 값을 받아주자! -->
+										<input type="hidden" name="orderId" value="${orders.orderId}">
+										<input type="hidden" name="orderProductName" value="${orders.orderProductName}">
+										<input type="hidden" name="orderProductPrice"
+											value="${orders.orderProductPrice}">
+										<input type="hidden" name="orderProductQty" value="${orders.orderProductQty}">
 										<button type="submit">구매취소</button>
 									</form>
 								</td>

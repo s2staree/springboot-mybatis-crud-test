@@ -20,4 +20,6 @@ public interface ProductDao {
 
     public void productQtyUpdate(ProductOrdersDto productOrdersDto); // 상품재고수정하기
 
+    public void productQtyRestore(ProductOrdersDto productOrdersDto); // 상품재고복원하기
+
 }
