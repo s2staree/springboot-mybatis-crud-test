@@ -28,10 +28,10 @@
 							<a href="/">홈</a>
 							<a href="/join">회원가입</a>
 							<a href="/login">로그인</a>
-							<a href="/admin">관리자모드</a>
 						</c:when>
 						<c:otherwise>
-							<a href="/">홈</a>
+							<span>《손님모드》</span>
+							<a href="/product">상품목록</a>
 							<a href="/product/order">구매목록</a>
 							<a href="/logout">로그아웃</a>
 						</c:otherwise>

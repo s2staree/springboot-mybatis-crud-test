@@ -7,7 +7,7 @@
 			<meta charset="UTF-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>상품관리</title>
+			<title>쇼핑몰 관리</title>
 			<link href="/css/admin/layout/reset.css" rel="stylesheet">
 			<link href="/css/admin/layout/header.css" rel="stylesheet">
 			<link href="/css/admin/layout/footer.css" rel="stylesheet">
@@ -22,9 +22,10 @@
 			<!------.header시작------>
 			<header class="header">
 				<div class="header_menu">
-					<a href="/">홈</a>
+					<span>《관리자모드》</span>
 					<a href="/admin/product">상품목록</a>
 					<a href="/admin/product/add">상품등록</a>
+					<a href="/logout">로그아웃</a>
 				</div>
 			</header>
 			<!------.header끝------>

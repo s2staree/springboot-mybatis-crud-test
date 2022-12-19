@@ -9,38 +9,50 @@
 
 
 body {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-	font-family: 'MonoplexKR-Regular';
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    font-family: 'MonoplexKR-Regular';
 
 }
 
 body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
+    display: none;
+    /* Chrome, Safari, Opera*/
 }
 
 
 /*------.header시작------*/
-.header{
-	height: 60px;
-	background-color: #F9F5EB;
+.header {
+    height: 60px;
+    background-color: #F9F5EB;
 }
 
-.header_menu{
+.header_menu {
     display: -webkit-flex;
-	display: flex;
-	justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
-.header_menu a{
+.header_menu span {
+    color: #91A7C8;
+    line-height: 60px;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-right: 50px;
+}
+
+.header_menu a {
     color: #1C3879;
-	line-height: 60px;
-	font-size: 14px;
-	font-weight: bolder;
-	margin-right: 50px;
+    line-height: 60px;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-right: 50px;
 }
 
-.header_menu a:last-child{
+.header_menu a:last-child {
     margin-right: 0
 }
+
 /*------.header끝------*/

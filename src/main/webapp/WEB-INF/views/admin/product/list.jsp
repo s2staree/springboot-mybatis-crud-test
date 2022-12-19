@@ -17,7 +17,7 @@
 							<td>판매가</td>
 							<td>재고</td>
 							<td>상품등록일</td>
-							<td>상세보기</td>
+							<td>수정/삭제</td>
 						</tr>
 						<c:forEach var="list" items="${list}">
 							<tr>
@@ -26,7 +26,11 @@
 								<td>${list.productPrice}</td>
 								<td>${list.productQty}</td>
 								<td>${list.createdAt}</td>
-								<td><a href="/admin/product/${list.productId}">상세보기</a></td>
+								<td>
+									<button type="button" onclick="location.href='/admin/product/${list.productId}'">
+										수정/삭제
+									</button>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
