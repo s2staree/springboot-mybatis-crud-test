@@ -91,10 +91,13 @@ create table user(
     user_name varchar(20) NOT NULL UNIQUE,
     user_password varchar(20) NOT null,
     user_email varchar(20) NOT null,
+    user_role VARCHAR(20) NOT NULL DEFAULT('customer'),
+    /* user_role에 해당되는 값이 없으면 null값 대신 DEFAULT인 'customer'가 넣어짐!*/
     created_at TIMESTAMP NOT null
 );
 
-INSERT INTO user(user_name, user_password, user_email, created_at) VALUES('user', '0000', 'user@email.com', NOW());
+INSERT INTO user(user_name, user_password, user_email, user_role, created_at) VALUES('admin', '0000', 'admin@email.com', 'admin', NOW());
+INSERT INTO user(user_name, user_password, user_email, user_role, created_at) VALUES('customer', '0000', 'customer@email.com', 'customer', NOW());
 /*--------------------------------------------------------------*/
 DROP TABLE orders;
 
