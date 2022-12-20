@@ -5,9 +5,9 @@
 <mapper namespace="site.metacoding.firstapp.domain.user.UserDao">
 
 	<insert id="join">
-		INSERT INTO user(user_name, user_password,
+		INSERT INTO user (user_name, user_password,
 		user_email, created_at)
-		VALUES(#{userName}, #{userPassword},
+		VALUES (#{userName}, #{userPassword},
 		#{userEmail}, NOW())
 	</insert>
 
@@ -15,12 +15,25 @@
 		resultType="site.metacoding.firstapp.domain.user.User">
 		SELECT *
 		FROM user
-		WHERE user_name=#{userName}
-		AND user_password=#{userPassword}
+		WHERE user_name = #{userName}
+		AND user_password = #{userPassword}
 	</select>
 
 	<select id="logout"
 		resultType="site.metacoding.firstapp.domain.user.User">
+	</select>
+
+	<select id="findAll"
+		resultType="site.metacoding.firstapp.domain.user.User">
+		SELECT *
+    	FROM user
+	</select>
+
+	<select id="findByRole"
+		resultType="site.metacoding.firstapp.domain.user.User">
+		SELECT *
+      	FROM user
+		WHERE user_role = 'customer'
 	</select>
 
 </mapper>

@@ -16,7 +16,7 @@
 				<table class="box_table">
 					<thead>
 						<tr>
-							<th colspan="8">회원목록</th>
+							<th colspan="8">손님목록</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,22 +32,24 @@
 							<td>회원정보삭제</td>
 
 						</tr>
-						<c:forEach var="userList" items="${userList}">
+						<c:forEach var="customerList" items="${customerList}">
 							<tr>
 
-								<td>${userList.userId}</td>
-								<td>${userList.userRole}</td>
-								<td>${userList.userName}</td>
-								<td>${userList.userEmail}</td>
-								<td>${userList.createdAt}</td>
+								<td>${customerList.userId}</td>
+								<td>${customerList.userRole}</td>
+								<td>${customerList.userName}</td>
+								<td>${customerList.userEmail}</td>
+								<td>${customerList.createdAt}</td>
 
 								<td>
-									<button type="button" onclick="location.href='/admin/product/${userList.userId}'">
+									<button type="button"
+										onclick="location.href='/admin/product/${customerList.userId}'">
 										수정
 									</button>
 								</td>
 								<td>
-									<button type="button" onclick="location.href='/admin/product/${userList.userId}'">
+									<button type="button"
+										onclick="location.href='/admin/product/${customerList.userId}'">
 										삭제
 									</button>
 								</td>

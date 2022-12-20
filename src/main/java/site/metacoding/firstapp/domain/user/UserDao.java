@@ -1,5 +1,7 @@
 package site.metacoding.firstapp.domain.user;
 
+import java.util.List;
+
 import site.metacoding.firstapp.web.dto.request.UserJoinDto;
 import site.metacoding.firstapp.web.dto.request.UserLoginDto;
 
@@ -11,6 +13,8 @@ public interface UserDao {
 
     public void logout(User user); // 로그아웃
 
-    public User findById(Integer userId); // 유저Id 찾기
+    public List<User> findAll(); // 전체회원 찾기
+
+    public List<User> findByRole(String userRole); // 회원Role로 찾기
 
 }

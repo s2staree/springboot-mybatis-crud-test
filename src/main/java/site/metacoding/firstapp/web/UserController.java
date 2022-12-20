@@ -1,8 +1,11 @@
 package site.metacoding.firstapp.web;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -19,10 +22,20 @@ public class UserController {
 	private final UserDao userDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
 	private final HttpSession session; // 인증시 필요한 코드. 스프링이 서버시작시에 IoC 컨테이너에 보관함.
 
-	// 관리자-회원목록보기
+	// 관리자-전체회원목록보기
 	@GetMapping("/admin/user")
-	public String userList() {
+	public String userList(Model model) {
+		List<User> userPS = userDao.findAll();
+		model.addAttribute("userList", userPS);
 		return "admin/account/users";
+	}
+
+	// 관리자-손님회원목록보기
+	@GetMapping("/admin/user/customer")
+	public String customerList(Model model, String userRole) {
+		List<User> userPS = userDao.findByRole(userRole);
+		model.addAttribute("customerList", userPS);
+		return "admin/account/customers";
 	}
 
 	// 회원가입 Form
@@ -59,9 +72,11 @@ public class UserController {
 
 		}
 
-		if (principal.getUserRole().equals("admin")) { // 인증 정보에 userRole이 "admin"이면,
+		if (principal.getUserRole().equals("admin")) {
+			// 인증 정보에 userRole이 "admin"이면,
 			// equals는 하나의 객체가 "admin"이라는 객체와 일치한다는 뜻.
-			// == 는 주소가 일치한다는 것을 의미함. 이 상황에서는 .equals()를 사용하는 것이 알맞음!
+			// == 는 주소가 일치한다는 것을 의미함.
+			// 이 상황에서는 .equals()를 사용하는 것이 알맞음!
 
 			session.setAttribute("principal", principal); // 인증.
 
