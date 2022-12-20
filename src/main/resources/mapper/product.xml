@@ -40,17 +40,17 @@
 	</select>
 
 	<update id="productQtyUpdate">
-		UPDATE product p
-		LEFT OUTER JOIN orders o ON p.product_id = o.product_id
-		SET p.product_qty = p.product_qty - #{orderProductQty}
-		WHERE p.product_id = #{productId}
+	<!--#{orderProductQty}는 DB에서 가져오는 값이 아니고 구매가 일어나면 입력 받아오는 값이기 때문에 orders테이블과 JOIN할 필요 없다!-->
+		UPDATE product
+		SET product_qty = product_qty - #{orderProductQty}
+      	WHERE product_id = #{productId}
 	</update>
 
 	<update id="productQtyRestore">
-		UPDATE product p
-		LEFT OUTER JOIN orders o ON p.product_id = o.product_id
-		SET p.product_qty = p.product_qty + #{orderProductQty}
-		WHERE p.product_id = #{productId}
+	<!--#{orderProductQty}는 DB에서 가져오는 값이 아니고 구매취소가 일어나면 입력 받아오는 값이기 때문에 orders테이블과 JOIN할 필요 없다!-->
+		UPDATE product
+		SET product_qty = product_qty + #{orderProductQty}
+      	WHERE product_id = #{productId}
 	</update>
 
 </mapper>
