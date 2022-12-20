@@ -2,14 +2,17 @@ package site.metacoding.firstapp.web.dto.request;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import site.metacoding.firstapp.domain.orders.Orders;
 
+@ToString
 @Setter
 @Getter
 public class ProductOrdersDto {
+    // 아래처럼 이렇게 적혀있는 애들 아니면 나 일 안한대요 일 안한다고요
     private Integer orderId;
     private Integer userId;
-    private String orderUserName;
+    private String orderUserName; // 이름이 이렇게 되어야 한다니깐요?
     private Integer productId;
     private String orderProductName;
     private Integer orderProductPrice;

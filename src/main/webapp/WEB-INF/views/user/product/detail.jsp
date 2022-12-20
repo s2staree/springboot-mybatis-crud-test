@@ -8,13 +8,13 @@
 				<form action="/product/${detail.productId}/buy" method="post">
 					<ul>
 						<!-- name(키)="카드" / value(밸류)="＄{통장.현금}" -->
+						<!-- name은 input 태그 안의 여러 속성들을 총칭해주는 태그 -->
+						<!-- input은 form 태그 안에서 쓸 수 있는 속성 태그중 하나 -->
 						<li>
 							<div class="page_name">
 								<div>상품명</div>
 								<div>${detail.productName}</div>
 								<input type="hidden" name="orderProductName" value="${detail.productName}">
-								<!-- name은 input 태그 안의 여러 속성들을 총칭해주는 태그 -->
-								<!-- input은 form 태그 안에서 쓸 수 있는 속성 태그중 하나 -->
 							</div>
 						</li>
 						<li>

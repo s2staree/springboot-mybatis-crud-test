@@ -18,7 +18,7 @@ public interface ProductDao {
 
     public Product findByProductName(String productName); // 상품명찾기
 
-    public void productQtyUpdate(ProductOrdersDto productOrdersDto); // 상품재고수정하기
+    public int productQtyUpdate(ProductOrdersDto productOrdersDto); // 상품재고수정하기
 
     public void productQtyRestore(ProductOrdersDto productOrdersDto); // 상품재고복원하기
 
