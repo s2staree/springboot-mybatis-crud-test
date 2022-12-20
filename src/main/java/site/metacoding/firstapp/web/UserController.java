@@ -19,6 +19,12 @@ public class UserController {
 	private final UserDao userDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
 	private final HttpSession session; // 인증시 필요한 코드. 스프링이 서버시작시에 IoC 컨테이너에 보관함.
 
+	// 관리자-회원목록보기
+	@GetMapping("/admin/user")
+	public String userList() {
+		return "admin/account/users";
+	}
+
 	// 회원가입 Form
 	@GetMapping("/join")
 	public String joinForm() {

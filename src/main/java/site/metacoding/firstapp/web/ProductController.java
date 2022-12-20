@@ -23,15 +23,15 @@ public class ProductController {
 	private final ProductDao productDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
 	private final ProductService productService;
 
-	// 상품상세보기
-	@GetMapping({ "/admin/product/{productId}", "/admin/product/{productId}/detail" })
-	public String findById(@PathVariable Integer productId, Model model) { // @PathVariable: 매핑주소에서 id값을 찾을때 매개변수에 붙여줌.
-		Product productPS = productDao.findById(productId); // 영속화 되어있는 값을 가져올 때 PS를 붙임.
-		model.addAttribute("detail", productPS);
-		return "admin/product/detail";
+	// 메인페이지 (손님-상품목록보기)
+	@GetMapping({ "/product", "/home", "/" })
+	public String homePage(Model model) { // Model model: 페이지(jsp) view로 가져오기 위해서 사용. Request(요청)같은 기능.
+		List<Product> productPS = productDao.findAll();
+		model.addAttribute("list", productPS);
+		return "user/product/list";
 	}
 
-	// 상품목록보기
+	// 관리자-상품목록보기
 	@GetMapping({ "/admin/product", "/admin" })
 	public String findAll(Model model) { // Model model: 페이지(jsp) view로 가져오기 위해서 사용. Request(요청)같은 기능.
 		List<Product> productPS = productDao.findAll();
@@ -39,13 +39,21 @@ public class ProductController {
 		return "admin/product/list";
 	}
 
-	// 상품등록하기 Form
+	// 관리자-상품상세보기
+	@GetMapping({ "/admin/product/{productId}", "/admin/product/{productId}/detail" })
+	public String findById(@PathVariable Integer productId, Model model) { // @PathVariable: 매핑주소에서 id값을 찾을때 매개변수에 붙여줌.
+		Product productPS = productDao.findById(productId); // 영속화 되어있는 값을 가져올 때 PS를 붙임.
+		model.addAttribute("detail", productPS);
+		return "admin/product/detail";
+	}
+
+	// 관리자-상품등록하기 Form
 	@GetMapping("/admin/product/add")
 	public String insertForm() {
 		return "admin/product/add";
 	}
 
-	// 상품등록하기
+	// 관리자-상품등록하기
 	@PostMapping("/admin/product/add")
 	public @ResponseBody CMRespDto<?> insert(@RequestBody Product product) {
 		productDao.insert(product); // 상품등록후 db에 저장
@@ -60,7 +68,7 @@ public class ProductController {
 		return new CMRespDto<>(1, "성공", isSame);
 	}
 
-	// 상품수정하기 Form
+	// 관리자-상품수정하기 Form
 	@GetMapping("/admin/product/{productId}/edit")
 	public String updateForm(@PathVariable Integer productId, Model model) {
 		Product productPS = productDao.findById(productId);
@@ -68,14 +76,14 @@ public class ProductController {
 		return "admin/product/edit";
 	}
 
-	// 상품수정하기
+	// 관리자-상품수정하기
 	@PostMapping("/admin/product/{productId}/edit") // 위 Form 코드의 매핑주소와 통일해야 함.
 	public String update(Product product) { // 위 Form 코드에서 id값을 이미 받아왔기 때문에 @PathVariable 안 붙여도 됨.
 		productDao.update(product);
 		return "redirect:/admin/product";
 	}
 
-	// 상품삭제하기
+	// 관리자-상품삭제하기
 	@PostMapping("/admin/product/{productId}/delete")
 	public String deleteById(@PathVariable Integer productId) {
 		productDao.deleteById(productId);

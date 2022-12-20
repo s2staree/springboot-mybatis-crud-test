@@ -26,15 +26,23 @@ public class OrdersController {
 	private final OrdersDao ordersDao;
 	private final HttpSession session;
 
-	// 메인페이지 (유저-상품목록보기)
-	@GetMapping({ "/product", "/home", "/" })
-	public String homePage(Model model) { // Model model: 페이지(jsp) view로 가져오기 위해서 사용. Request(요청)같은 기능.
-		List<Product> productPS = productDao.findAll();
-		model.addAttribute("list", productPS);
-		return "user/product/list";
+	// 관리자-전체주문목록보기
+	@GetMapping({ "/admin/order/all", "/admin/order" })
+	public String allOrderList(Model model) {
+		List<Orders> ordersPS = ordersDao.findAll();
+		model.addAttribute("orderList", ordersPS);
+		return "admin/orders/all";
 	}
 
-	// 구매페이지 (유저-상품상세보기)
+	// 관리자-오늘주문목록보기
+	@GetMapping("/admin/order/today")
+	public String todayOrderList(Model model) {
+		List<Orders> ordersPS = ordersDao.findAllByDate();
+		model.addAttribute("orderList", ordersPS);
+		return "admin/orders/today";
+	}
+
+	// 구매페이지 (손님-상품상세보기)
 	@GetMapping("/product/{productId}")
 	public String buyPage(@PathVariable Integer productId, Model model) { // @PathVariable: 매핑주소에서 id값을 찾을때 매개변수에 붙여줌.
 		Product productPS = productDao.findById(productId); // 영속화 되어있는 값을 가져올 때 PS를 붙임.
@@ -46,7 +54,7 @@ public class OrdersController {
 		return "user/product/detail";
 	}
 
-	// 구매하기 (해당 상품 재고 -1)
+	// 손님-구매하기 : 해당 상품 재고 -1
 	@PostMapping("/product/{productId}/buy")
 	public String buy(@PathVariable Integer productId, ProductOrdersDto productOrdersDto) { // 나 ProductOrdersDto 타입의
 																							// 애들거 안받으면 일
@@ -85,15 +93,14 @@ public class OrdersController {
 		// 주문DB에 주문 추가.
 		ordersDao.insert(productOrdersDto.toEntity(principal.getUserId(), principal.getUserName()));
 		System.out.println("디버그 주문수:" + productOrdersDto.getOrderProductQty());
-		// 김지원한테 주문후 구매수량 찾는법 물어보기!!!!!!
 
 		return "redirect:/";
 
 	}
 
-	// 구매목록(주문목록)페이지
+	// 손님-구매목록(주문목록)페이지
 	@GetMapping("/product/order") // session으로 유저 로그인 정보를 가져오기 때문에 매핑주소에 userId를 받을 필요없음. 오히려 넣으면 터짐.
-	public String orderList(Model model) {
+	public String buyList(Model model) {
 
 		User principal = (User) session.getAttribute("principal"); // 로그인 정보 가져오는 코드!
 
@@ -101,8 +108,9 @@ public class OrdersController {
 			return "redirect:/login"; // 로그인 페이지로 돌려보내기!
 		}
 
-		List<Orders> ordersPS = ordersDao.findAll(principal.getUserId()); // 로그인 정보를 가져와서 주문목록보기 기능에 넣고 List<Orders> 타입의
-																			// ordersPS에 담아놓기.
+		List<Orders> ordersPS = ordersDao.findAllById(principal.getUserId()); // 로그인 정보를 가져와서 주문목록보기 기능에 넣고 List<Orders>
+																				// 타입의
+																				// ordersPS에 담아놓기.
 
 		model.addAttribute("orderList", ordersPS);
 		// ordersList를 jsp의 forEach문의 items에 적고 var의 .뒤의 값들을 참조해서(ordersPS에 맞춰 적어야 함)
@@ -114,10 +122,10 @@ public class OrdersController {
 
 	}
 
-	// 구매취소하기
+	// 구매취소(주문철회)
 	@PostMapping("/product/{productId}/order/{orderId}/cancel") // 매퍼에서 조인으로 연결된 Id값이 있을 때, Id값을 못 찾아온다면 매핑주소에 추가해주면 해결될
 																// 것!
-	public String orderCancel(@PathVariable Integer productId, @PathVariable Integer orderId,
+	public String buyCancel(@PathVariable Integer productId, @PathVariable Integer orderId,
 			ProductOrdersDto productOrdersDto) {
 
 		User principal = (User) session.getAttribute("principal"); // 로그인 정보 가져오는 코드!
@@ -136,6 +144,10 @@ public class OrdersController {
 
 		// 상품DB에 해당 상품 재고 복원
 		productDao.productQtyRestore(productOrdersDto);
+
+		if (principal.getUserRole().equals("admin")) { // 인증 정보에 userRole이 "admin"이면,
+			return "redirect:/admin/product/order"; // 관리자모드의 주문목록 페이지로 이동.
+		}
 
 		return "redirect:/product/order";
 
