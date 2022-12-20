@@ -47,9 +47,9 @@
 									</button>
 								</td>
 								<td>
-									<button type="button" onclick="location.href='/admin/product/${userList.userId}'">
-										삭제
-									</button>
+									<form action="/admin/account/${userList.userId}/delete" method="post">
+										<button type="submit">삭제</button>
+									</form>
 								</td>
 
 							</tr>

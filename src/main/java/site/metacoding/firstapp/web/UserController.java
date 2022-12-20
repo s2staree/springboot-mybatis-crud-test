@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
@@ -36,6 +37,13 @@ public class UserController {
 		List<User> userPS = userDao.findByRole(userRole);
 		model.addAttribute("customerList", userPS);
 		return "admin/account/customers";
+	}
+
+	// 회원계정삭제
+	@PostMapping("admin/account/{userId}/delete")
+	public String accountDelete(@PathVariable Integer userId, UserLoginDto userLoginDto) {
+		userDao.deleteById(userId);
+		return "redirect:/admin/user";
 	}
 
 	// 회원가입 Form

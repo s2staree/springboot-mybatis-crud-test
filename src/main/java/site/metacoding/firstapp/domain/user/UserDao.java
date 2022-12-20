@@ -15,6 +15,8 @@ public interface UserDao {
 
     public List<User> findAll(); // 전체회원 찾기
 
-    public List<User> findByRole(String userRole); // 회원Role로 찾기
+    public List<User> findByRole(String userRole); // 회원Role로 회원찾기
+
+    public void deleteById(Integer userId); // 회원Id로 회원삭제
 
 }

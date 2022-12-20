@@ -36,4 +36,8 @@
 		WHERE user_role = 'customer'
 	</select>
 
+	<delete id="deleteById">
+		DELETE FROM user WHERE user_id = #{userId}
+	</delete>
+
 </mapper>
