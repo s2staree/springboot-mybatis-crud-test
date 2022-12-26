@@ -8,16 +8,22 @@
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<title>쇼핑몰 관리</title>
+			<!------ admin - layout ------>
 			<link href="/css/admin/layout/reset.css" rel="stylesheet">
 			<link href="/css/admin/layout/header.css" rel="stylesheet">
 			<link href="/css/admin/layout/footer.css" rel="stylesheet">
+			<!------ admin - product ------>
 			<link href="/css/admin/product/add.css" rel="stylesheet">
 			<link href="/css/admin/product/detail.css" rel="stylesheet">
 			<link href="/css/admin/product/list.css" rel="stylesheet">
 			<link href="/css/admin/product/edit.css" rel="stylesheet">
-			<link href="/css/admin/account/users.css" rel="stylesheet">
+			<!------ admin - orders ------>
 			<link href="/css/admin/orders/all.css" rel="stylesheet">
 			<link href="/css/admin/orders/today.css" rel="stylesheet">
+			<!------ admin - account ------>
+			<link href="/css/admin/account/users.css" rel="stylesheet">
+			<link href="/css/admin/account/customers.css" rel="stylesheet">
+			<link href="/css/admin/account/edit.css" rel="stylesheet">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		</head>
 

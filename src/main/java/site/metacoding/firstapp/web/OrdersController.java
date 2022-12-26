@@ -139,7 +139,7 @@ public class OrdersController {
 		// List<Orders> ordersPS면 List<Orders> 타입이니까 jsp의 forEach문의 ${} 안에 Orders 엔티티
 		// 이름대로 맞춰줘야 됨!
 
-		return "user/product/orders";
+		return "user/orders/list";
 
 	}
 

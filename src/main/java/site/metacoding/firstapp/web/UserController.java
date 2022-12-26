@@ -39,9 +39,32 @@ public class UserController {
 		return "admin/account/customers";
 	}
 
+	// 회원정보수정 Form
+	@GetMapping("/admin/account/{userId}/edit")
+	public String accountEditForm(@PathVariable Integer userId, Model model) {
+
+		// 회원Id를 찾아서 해당 회원정보를 userPS에 담기
+		User userPS = userDao.findById(userId);
+
+		// 해당 회원정보를 model에 담아서 뷰에 띄우기!
+		model.addAttribute("accountEdit", userPS);
+
+		return "admin/account/edit";
+	}
+
+	// 회원정보수정
+	@PostMapping("/admin/account/{userId}/edit") // 위 Form 코드의 매핑주소와 통일해야 함
+	public String accountEdit(User user) { // 위 Form 코드에서 id값을 이미 받아왔기 때문에 @PathVariable 안 붙여도 됨
+
+		// 회원정보 DB 변경!
+		userDao.update(user);
+
+		return "redirect:/admin/user";
+	}
+
 	// 회원계정삭제
 	@PostMapping("admin/account/{userId}/delete")
-	public String accountDelete(@PathVariable Integer userId, UserLoginDto userLoginDto) {
+	public String accountDelete(@PathVariable Integer userId) {
 		userDao.deleteById(userId);
 		return "redirect:/admin/user";
 	}

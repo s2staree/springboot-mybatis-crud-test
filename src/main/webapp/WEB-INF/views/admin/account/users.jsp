@@ -42,9 +42,9 @@
 								<td>${userList.createdAt}</td>
 
 								<td>
-									<button type="button" onclick="location.href='/admin/product/${userList.userId}'">
-										수정
-									</button>
+									<form action="/admin/account/${userList.userId}/edit" method="get">
+										<button type="submit">수정</button>
+									</form>
 								</td>
 								<td>
 									<form action="/admin/account/${userList.userId}/delete" method="post">

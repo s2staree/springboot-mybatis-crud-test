@@ -8,12 +8,16 @@
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<title>쇼핑몰</title>
+			<!------ user - layout ------>
 			<link href="/css/user/layout/reset.css" rel="stylesheet">
 			<link href="/css/user/layout/header.css" rel="stylesheet">
 			<link href="/css/user/layout/footer.css" rel="stylesheet">
+			<!------ user - product ------>
 			<link href="/css/user/product/list.css" rel="stylesheet">
 			<link href="/css/user/product/detail.css" rel="stylesheet">
-			<link href="/css/user/product/orders.css" rel="stylesheet">
+			<!------ user - orders ------>
+			<link href="/css/user/orders/list.css" rel="stylesheet">
+			<!------ user - account ------>
 			<link href="/css/user/account/login.css" rel="stylesheet">
 			<link href="/css/user/account/join.css" rel="stylesheet">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
