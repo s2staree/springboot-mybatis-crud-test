@@ -9,18 +9,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.user.User;
 import site.metacoding.firstapp.domain.user.UserDao;
+import site.metacoding.firstapp.service.UserService;
 import site.metacoding.firstapp.web.dto.request.UserJoinDto;
 import site.metacoding.firstapp.web.dto.request.UserLoginDto;
+import site.metacoding.firstapp.web.dto.response.CMRespDto;
 
 @RequiredArgsConstructor // 밑의 코드에서 선언한 코드를 new해서 안 불러도 되게 해주는 어노테이션.
 @Controller
 public class UserController {
 
 	private final UserDao userDao; // 선언. @RequiredArgsConstructor 과 함께 씀.
+	private final UserService userService;
 	private final HttpSession session; // 인증시 필요한 코드. 스프링이 서버시작시에 IoC 컨테이너에 보관함.
 
 	// 관리자-전체회원목록보기
@@ -77,9 +82,17 @@ public class UserController {
 
 	// 회원가입
 	@PostMapping("/join")
-	public String join(UserJoinDto userJoinDto) {
+	public @ResponseBody CMRespDto<?> join(@RequestBody UserJoinDto userJoinDto) {
 		userDao.join(userJoinDto);
-		return "redirect:/";
+		return new CMRespDto<>(1, "회원가입성공", null); // 1: 성공 / -1: 실패
+	}
+
+	// 아이디 중복확인
+	// http://localhost:8080/api/user/account/isUserNameSameCheck?userName=user
+	@GetMapping("/api/user/account/isUserNameSameCheck")
+	public @ResponseBody CMRespDto<Boolean> isUserNameSameCheck(String userName) {
+		boolean isSame = userService.아이디중복확인(userName);
+		return new CMRespDto<>(1, "성공", isSame);
 	}
 
 	// 로그인 Form

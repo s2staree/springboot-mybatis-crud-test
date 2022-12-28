@@ -15,9 +15,11 @@ public interface UserDao {
 
     public List<User> findAll(); // 전체회원 찾기
 
-    public List<User> findByRole(String userRole); // 회원Role로 회원찾기
+    public List<User> findByRole(String userRole); // 회원Role로 '손님'회원찾기
 
     public User findById(Integer userId); // 회원Id로 회원찾기
+
+    public User findByUserName(String userName); // 회원Name(아이디)으로 회원찾기
 
     public void update(User user); // 회원정보수정
 
