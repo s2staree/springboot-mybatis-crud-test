@@ -12,7 +12,7 @@
 					</thead>
 					<tbody>
 						<tr class="table_item">
-							<td>No.</td>
+							<td>상품번호</td>
 							<td>상품명</td>
 							<td>판매가</td>
 							<td>재고</td>
