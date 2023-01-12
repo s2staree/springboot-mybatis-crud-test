@@ -157,17 +157,17 @@ public class OrdersController {
 
 		// 주문Id로 해당 주문 찾아서 주문DB 담음.
 		Orders ordersPS = ordersDao.findById(orderId);
-		System.out.println("디버그: " + orderId);
+		System.out.println("디버그 주문ID: " + orderId);
 
 		// 주문DB에 해당 주문건 삭제
 		ordersDao.deleteById(ordersPS.getOrderId());
-		System.out.println("디버그: " + productOrdersDto.getProductId());
+		System.out.println("디버그 상품ID: " + productOrdersDto.getProductId());
 
 		// 상품DB에 해당 상품 재고 복원
 		productDao.productQtyRestore(productOrdersDto);
 
 		if (principal.getUserRole().equals("admin")) { // 인증 정보에 userRole이 "admin"이면,
-			return "redirect:/admin/product/order"; // 관리자모드의 주문목록 페이지로 이동.
+			return "redirect:/admin/order"; // 관리자모드의 주문목록 페이지로 이동.
 		}
 
 		return "redirect:/product/order";
