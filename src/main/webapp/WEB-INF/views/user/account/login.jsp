@@ -11,7 +11,7 @@
 				</div>
 				<div class="login_password">
 					<h2>패스워드</h2>
-					<input type="text" name="userPassword" value="${login.userPassword}">
+					<input type="password" name="userPassword" value="${login.userPassword}">
 				</div>
 				<button type="submit">로그인</button>
 				<button type="button" onclick="location.href='join'">회원가입</button>

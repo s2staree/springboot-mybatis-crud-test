@@ -12,7 +12,7 @@
 				</div>
 				<div class="join_password">
 					<h2>패스워드</h2>
-					<input type="text" name="userPassword" id="userPassword">
+					<input type="password" name="userPassword" id="userPassword">
 				</div>
 				<div class="join_email">
 					<h2>이메일</h2>
