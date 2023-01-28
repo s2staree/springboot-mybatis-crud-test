@@ -181,6 +181,17 @@ INSERT INTO user(user_name, user_password, user_email, user_role, created_at) VA
 ### 구매자) 구매후 상품구매목록
 <img src="https://user-images.githubusercontent.com/112357299/212027624-5ee837fb-2be1-4617-86ac-46a59b34c285.jpg" width="1000"/>
 
+### 구매자) 구매취소
+<img src="https://user-images.githubusercontent.com/112357299/215252564-57e8ebb4-7a94-4a30-a0c7-9adef00b9ed7.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252566-1d45780b-65c9-4d74-a1f5-e5ef04943408.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252567-930d4a5a-d9ce-4be4-8df8-4bfae5084c59.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252569-faba092b-ba22-4242-9ba6-9c8d1a54345b.jpg" width="1000"/>
+
+### 구매자) 구매취소후 상품목록
+<img src="https://user-images.githubusercontent.com/112357299/215252576-8dfa7192-0fe6-4ce7-9e33-980d9f825797.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252580-b197b7f6-4e0f-4592-b713-354593627c4c.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252582-f3dfd90a-ec40-474c-afd4-b18f7e23fc36.jpg" width="1000"/>
+
 ### 로그인-관리자로그인
 <img src="https://user-images.githubusercontent.com/112357299/212027738-fd273cee-c0c4-4e19-bf4a-db00c94a26e6.jpg" width="1000"/>
 
@@ -204,6 +215,13 @@ INSERT INTO user(user_name, user_password, user_email, user_role, created_at) VA
 ### 관리자) 상품수정후 상품목록
 <img src="https://user-images.githubusercontent.com/112357299/212029161-d3b434b2-3888-4c7e-8303-3b6b7cded3a6.jpg" width="1000"/>
 
+### 관리자) 상품삭제
+<img src="https://user-images.githubusercontent.com/112357299/215252609-645b0b03-2e84-405f-a314-24e02e07283a.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252612-861142a4-2bb1-4996-9d83-2f2702c4420b.jpg" width="1000"/>
+
+### 관리자) 상품삭제후 상품목록
+<img src="https://user-images.githubusercontent.com/112357299/215252622-4e45c73b-9aab-4783-be29-f49ed04f862b.jpg" width="1000"/>
+
 ### 관리자) 상품등록페이지
 <img src="https://user-images.githubusercontent.com/112357299/212029335-e84c62d2-1aeb-44e9-b229-12474534e994.jpg" width="1000"/>
 
@@ -224,6 +242,16 @@ INSERT INTO user(user_name, user_password, user_email, user_role, created_at) VA
 ### 관리자) 회원주문목록페이지(오늘주문목록)
 <img src="https://user-images.githubusercontent.com/112357299/212029982-473619c9-859d-4293-90a4-c213b910258c.jpg" width="1000"/>
 
+### 관리자) 회원주문철회
+<img src="https://user-images.githubusercontent.com/112357299/215252589-1ea5daa5-7498-4484-8f8f-51de700c9cbd.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252591-a6ec4e14-f267-42de-ba66-55664090a0f3.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252594-da3b4a6e-3c52-4775-8ad5-b2233bbcef48.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252597-c2ac119d-36b0-43fa-8ea5-b68ab3f3402a.jpg" width="1000"/>
+
+### 관리자) 회원주문철회후 상품목록확인
+<img src="https://user-images.githubusercontent.com/112357299/215252604-8e616672-1a67-4da6-9c0b-1307f7023334.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252607-7ab78727-d7ee-4f8c-881d-51e9cf4f0016.jpg" width="1000"/>
+
 ### 관리자) 회원목록페이지(전체회원목록)
 <img src="https://user-images.githubusercontent.com/112357299/212029984-0588de6d-b856-45c0-a9a7-dd74672690a0.jpg" width="1000"/>
 <img src="https://user-images.githubusercontent.com/112357299/212029987-d5ac56c5-1e12-4df1-ad1b-cbed0bec1bd5.jpg" width="1000"/>
@@ -243,6 +271,12 @@ INSERT INTO user(user_name, user_password, user_email, user_role, created_at) VA
 ### 관리자) 회원수정후 회원목록
 <img src="https://user-images.githubusercontent.com/112357299/212029996-ce0306b3-4c4f-45f7-bdbc-506b72d95235.jpg" width="1000"/>
 <img src="https://user-images.githubusercontent.com/112357299/212029998-3b5dd67c-7aad-4c09-b320-40299b0e5d70.jpg" width="1000"/>
+
+### 관리자) 회원삭제(회원탈회)
+<img src="https://user-images.githubusercontent.com/112357299/215252633-31b12536-7102-4058-bb2b-60350289d439.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252643-be825ff0-04d8-48a9-b37c-6c24d1a12447.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252681-88aba25b-5780-4e37-b61b-48c9c6bd7799.jpg" width="1000"/>
+<img src="https://user-images.githubusercontent.com/112357299/215252712-afa897fd-8881-4f38-82db-57dab811bf77.jpg" width="1000"/>
 
 ### 로그아웃
 <img src="https://user-images.githubusercontent.com/112357299/212030000-cb57254f-ee89-484e-a3df-44df78d8b6f2.jpg" width="1000"/>
